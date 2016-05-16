@@ -1,0 +1,23 @@
+alias cabalupgrades="cabal list --installed  | egrep -iv '(synopsis|homepage|license)'"
+
+# Emacs aliases
+alias emcl="emacsclient -c -a 'emacs'"
+alias emclt="emacsclient -c -t -a 'emacs -nw'"
+
+# Fan aliases
+alias fan_disable="i8kfan -1 0"
+alias fan_calm="i8kfan -1 1"
+alias fan_high="i8kfan -1 2"
+alias fan_info="watch -t 'i8kctl && sensors'"
+alias fan_abuse="watch -n 5 'i8kfan -1 2'"
+
+# Other aliases
+alias vbox_enable="please rcvboxdrv setup"
+alias xup="xrdb ~/.Xresources"
+
+alias setup_screens_home="xrandr --output LVDS1 --auto --primary --output VGA1 --auto --left-of LVDS1; ~/.fehbg"
+alias available_wifi_networks="nmcli dev wifi list"
+alias openwee="urxvt -e weechat"
+
+# test
+# alias get_aliases_names="cat ~/.zsh_aliases | egrep -o 'alias\s+[^\=]+' | awk -F 'alias ' '{print $2}'"
