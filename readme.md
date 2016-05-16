@@ -21,3 +21,7 @@ standard apps across them:
 
 ~~I've actualy listed these to show about some dotfiles~~
 I actualy don't know why I've made this table.
+
+## Bootstrapping
+
+The files in this repository are organized as GNU Stow Packages.
