@@ -30,7 +30,7 @@
 ! *color7:  #cccccc
 ! *color15: #ffffff
 
-! Base16 ParaisoDark
+! Firecamp Theme aka Base16 ParaisoDark (~halfo)
 *.foreground:   #a39e9b
 *.background:   #190e18
 *.cursorColor:  #4e4857
