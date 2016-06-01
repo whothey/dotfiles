@@ -210,13 +210,23 @@ bindsym $mod+g mode "workspaces"
 
 # Colors / 'Nebula' Theme
 #  Class                 border   background  text    indicator  child_border
-client.focused           #5e54b7  #5e54b7     #fffdff
-client.focused_inactive  #0c0d1f  #0c0d1f     #fffdff
-client.unfocused         #211f44  #211f44     #fffdff
-client.urgent            #c57bd5  #c57bd5     #221f64
+# client.focused           #5e54b7  #5e54b7     #fffdff
+# client.focused_inactive  #0c0d1f  #0c0d1f     #fffdff
+# client.unfocused         #211f44  #211f44     #fffdff
+# client.urgent            #c57bd5  #c57bd5     #221f64
 # client.placeholder       #
 
-client.background #0c0d1f
+# client.background #0c0d1f
+
+# Colors / 'Deereing' Theme
+#  Class                 border   background  text    indicator  child_border
+client.focused           #ea7f37  #ea7f37     #fffdff
+client.focused_inactive  #934147  #934147     #fffdff
+client.unfocused         #4d2c47  #4d2c47     #fffdff
+client.urgent            #26c83f  #26c83f     #221f64
+# client.placeholder       #
+
+client.background #221821
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -229,27 +239,36 @@ bar {
         # hidden_state hide
         # modifier $mod
         
-        # Chevron right
+        # Separators
         # separator_symbol ""
-        # Hashtag
-        separator_symbol ""
+        # separator_symbol ""
+        separator_symbol ""
         position top
         # tray_output primary
         colors {
                # Nebula theme
-               background #0c0d1f
-               focused_background #090531
+               # background #0c0d1f
+               # focused_background #090531
+               # statusline #f5e3ff
+               # focused_statusline #fffdff
+               # separator #3d3c88
+               # focused_separator #aeb0fd
+
+               # Deereing Theme (~paraiso)
+               background #221821
+               focused_background #2f1e2e
                statusline #f5e3ff
                focused_statusline #fffdff
-               separator #3d3c88
-               focused_separator #aeb0fd
+               separator #4c2b46
+               focused_separator #e9723a
 
                # Workspace Buttons
-               focused_workspace #5e54b7 #5e54b7 #fffdff 
-               active_workspace #211f44 #211f44 #fffdff
-               inactive_workspace #0c0d1f #0c0d1f #fffdff 
-               urgent_workspace #c57bd5 #c57bd5 #221f64
-               # binding_mode
+               active_workspace #4c2b46 #4c2b46 #fffdff 
+               focused_workspace #e9723a #e9723a #fffdff
+               inactive_workspace #2f1e2e #2f1e2e #fffdff
+               # inactive_workspace #241c33 #241c33 #fffdff  # alt
+               # binding_mode also
+               urgent_workspace #26c83f #26c83f #221f64
         }
 }
 
