@@ -18,6 +18,7 @@ alias xup="xrdb ~/.Xresources"
 alias setup_screens_home="xrandr --output LVDS1 --auto --primary --output VGA1 --auto --left-of LVDS1; ~/.fehbg"
 alias available_wifi_networks="nmcli dev wifi list"
 alias openwee="urxvt -e weechat"
+alias weather_here="curl -4 http://wttr.in/Chapeco"
 
 # test
 # alias get_aliases_names="cat ~/.zsh_aliases | egrep -o 'alias\s+[^\=]+' | awk -F 'alias ' '{print $2}'"
