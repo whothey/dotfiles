@@ -21,7 +21,7 @@ set $WS4 "4:&#xf0c8;"
 set $WS5 "5:&#xf0c8;"
 set $WS6 "6:&#xf0c8;"
 set $WS7 "7:&#xf0c8;"
-set $WS8 "8:&#xf0c8;"
+set $WS8 "8:&#xf108;"
 set $WS9 "9:&#xf086;"
 set $WS0 "10:&#xf121;"
 
@@ -282,7 +282,7 @@ new_window 1pixel
 
 # Windows to Workspaces
 for_window [class="(?i)firefox"] move container to workspace $WS2
-for_window [title="(?i)weechat"] move container to workspace $WS9
+for_window [title="(?i)weechat" class="(?i)urxvt"] move container to workspace $WS9
 for_window [class="(?i)emacs"] move container to workspace $WS0
 
 bindsym $mod+$altMod+r exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace to: '
