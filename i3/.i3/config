@@ -282,6 +282,7 @@ new_window 1pixel
 
 # Windows to Workspaces
 for_window [class="(?i)firefox"] move container to workspace $WS2
+for_window [class="(?i)virtualbox"] move container to workspace $WS8
 for_window [title="(?i)weechat" class="(?i)urxvt"] move container to workspace $WS9
 for_window [class="(?i)emacs"] move container to workspace $WS0
 
