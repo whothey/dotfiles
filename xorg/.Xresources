@@ -57,6 +57,9 @@
 URxvt*scrollBar: false
 URxvt*vbell: false
 URxvt.font: xft:Meslo\ LG\ L\ DZ\ for\ Powerline:size=12:antialias=true
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
 *vbell: false
 
