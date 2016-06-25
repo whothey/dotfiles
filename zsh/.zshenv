@@ -8,3 +8,5 @@ export PATH="$PATH:$HOME/.gem/ruby/2.3.0/bin:$HOME/.composer/vendor/bin:$HOME/.c
 
 export RUST_SRC_PATH="$HOME/Repositories/rust/src"
 export CARGO_HOME="$HOME/.cargo"
+
+export BROWSER=/usr/bin/firefox

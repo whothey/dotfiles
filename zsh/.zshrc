@@ -128,4 +128,4 @@ function get-aliases-names() {
 }
 
 # Include all aliases
-source ~/.zsh_aliases
+. ~/.zsh_aliases
