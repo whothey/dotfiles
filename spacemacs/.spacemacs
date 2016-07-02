@@ -251,6 +251,7 @@ It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
   ;; Set path to racer binary
   (setq racer-cmd (concat (getenv "HOME") "/.cargo/bin/racer"))
+  (setq racer-rust-src-path (concat (getenv "HOME") "/Repositories/rust/src/"))
   (setq flycheck-rust-executable (concat (getenv "HOME") "/.cargo/bin/rustc"))
   (setq flycheck-rust-cargo-executable (concat (getenv "HOME") "/.cargo/bin/cargo"))
 
