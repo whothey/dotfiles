@@ -36,6 +36,7 @@ values."
      org
      eyebrowse
      latex
+     restclient
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
