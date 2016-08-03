@@ -15,7 +15,7 @@ set $altMod Mod1
 
 # Workspaces
 set $WS1 "1:&#xf120;"
-set $WS2 "2:&#xf269;"
+set $WS2 "2:&#xf0ac;"
 set $WS3 "3:&#xf0c8;"
 set $WS4 "4:&#xf0c8;"
 set $WS5 "5:&#xf0c8;"
