@@ -264,6 +264,8 @@ user code."
 layers configuration. You are free to put any user code."
   (setq auto-completion-enable-help-tooltip t)
   (setq auto-completion-enable-snippets-in-popup t)
+
+  (add-hook 'typescript-mode-hook (lambda () (yas-activate-extra-mode 'js-mode)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
