@@ -26,16 +26,17 @@ values."
      auto-completion
      c-c++
      rust
-     haskell
+     ;; haskell
      ;; elm
+     clojure
      better-defaults
      emacs-lisp
      git
      ;; rcirc
-     markdown
+     ;; markdown
      org
      eyebrowse
-     latex
+     ;; latex
      restclient
      ;; (shell :variables
      ;;        shell-default-height 30
