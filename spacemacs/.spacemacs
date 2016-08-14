@@ -26,7 +26,7 @@ values."
      auto-completion
      c-c++
      rust
-     ;; haskell
+     haskell
      ;; elm
      clojure
      better-defaults
@@ -38,9 +38,9 @@ values."
      eyebrowse
      ;; latex
      restclient
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; spell-checking
      html
      syntax-checking
