@@ -20,9 +20,9 @@ set $WS3 "3:&#xf0c8;"
 set $WS4 "4:&#xf0c8;"
 set $WS5 "5:&#xf0c8;"
 set $WS6 "6:&#xf0c8;"
-set $WS7 "7:&#xf0c8;"
+set $WS7 "7:&#xf086;"
 set $WS8 "8:&#xf108;"
-set $WS9 "9:&#xf086;"
+set $WS9 "9:&#xf1bc;"
 set $WS0 "10:&#xf121;"
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -284,7 +284,8 @@ new_window 1pixel
 for_window [class="(?i)firefox"] move container to workspace $WS2
 for_window [class="(?i)chromium"] move container to workspace $WS2
 for_window [class="(?i)virtualbox"] move container to workspace $WS8
-for_window [title="(?i)weechat" class="(?i)urxvt"] move container to workspace $WS9
+for_window [title="(?i)weechat" class="(?i)urxvt"] move container to workspace $WS7
+for_window [class="(?i)spotify"] move container to workspace $WS9
 for_window [class="(?i)emacs"] move container to workspace $WS0
 
 bindsym $mod+$altMod+r exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace to: '
