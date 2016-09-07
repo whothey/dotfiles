@@ -16,7 +16,7 @@ set $altMod Mod1
 # Workspaces
 set $WS1 "1:&#xf120;"
 set $WS2 "2:&#xf0ac;"
-set $WS3 "3:&#xf0c8;"
+set $WS3 "3:&#xf02d;"
 set $WS4 "4:&#xf0c8;"
 set $WS5 "5:&#xf0c8;"
 set $WS6 "6:&#xf0c8;"
@@ -283,6 +283,7 @@ new_window 1pixel
 # Windows to Workspaces
 for_window [class="(?i)firefox"] move container to workspace $WS2
 for_window [class="(?i)chromium"] move container to workspace $WS2
+for_window [class="(?i)zathura"] move container to workspace $WS3
 for_window [class="(?i)virtualbox"] move container to workspace $WS8
 for_window [title="(?i)weechat" class="(?i)urxvt"] move container to workspace $WS7
 for_window [class="(?i)spotify"] move container to workspace $WS9
