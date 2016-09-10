@@ -312,6 +312,11 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && pkill -RTMIN+10 i3blo
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
 
+# Player control
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Brightness
 bindsym XF86MonBrightnessDown exec xbacklight - 10
 bindsym XF86MonBrightnessUp exec xbacklight + 10
