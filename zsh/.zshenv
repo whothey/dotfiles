@@ -10,3 +10,4 @@ export RUST_SRC_PATH="$HOME/Repositories/rust/src"
 export CARGO_HOME="$HOME/.cargo"
 
 export BROWSER=/usr/bin/firefox
+export TERMINAL=/usr/bin/urxvtc

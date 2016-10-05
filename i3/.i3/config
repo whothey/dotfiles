@@ -44,7 +44,8 @@ font pango:FontAwesome 10, DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc
+bindsym $mod+Shift+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -201,7 +202,7 @@ mode "workspaces" {
 mode "launcher" {
      bindsym f exec firefox
      bindsym e exec emcl
-     bindsym w exec "urxvt -e weechat"
+     bindsym w exec "urxvtc -e weechat"
 
      bindsym Return mode "default"
      bindsym Escape mode "default"
