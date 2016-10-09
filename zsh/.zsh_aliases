@@ -21,3 +21,4 @@ alias openwee="urxvt -e weechat"
 alias weather_here="curl -4 http://wttr.in/Chapeco"
 
 alias ohrust="rustc --explain"
+alias cssemester="cd ~/Documents/UFFS/2016-2/"
