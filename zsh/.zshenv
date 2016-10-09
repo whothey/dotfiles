@@ -11,3 +11,5 @@ export CARGO_HOME="$HOME/.cargo"
 
 export BROWSER=/usr/bin/firefox
 export TERMINAL=/usr/bin/urxvtc
+export SOURCE_LANG=en
+export TARGET_LANG=pt
