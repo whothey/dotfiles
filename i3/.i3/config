@@ -23,7 +23,7 @@ set $WS5 "5:&#xf0c8;"
 set $WS6 "6:&#xf0c8;"
 set $WS7 "7:&#xf086;"
 set $WS8 "8:&#xf108;"
-set $WS9 "9:&#xf1bc;"
+set $WS9 "9:&#xf001;"
 set $WS0 "10:&#xf121;"
 
 # Font for window titles. Will also be used by the bar unless a different font
