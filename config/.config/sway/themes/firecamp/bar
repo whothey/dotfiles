@@ -1,0 +1,26 @@
+# Firecamp Theme Bar
+
+bar {
+        font pango:FontAwesome 11, DejaVu Sans Mono 8 
+        status_command i3blocks
+        position top
+        separator_symbol ""
+
+        colors {
+               # Firecamp Theme (~paraiso)
+               background #221821
+               focused_background #2f1e2e
+               statusline #f5e3ff
+               focused_statusline #fffdff
+               separator #4c2b46
+               focused_separator #e9723a
+
+               # Workspace Buttons
+               active_workspace #4c2b46 #4c2b46 #fffdff 
+               focused_workspace #e9723a #e9723a #fffdff
+               inactive_workspace #2f1e2e #2f1e2e #fffdff
+               # inactive_workspace #241c33 #241c33 #fffdff  # alt
+               # binding_mode also
+               urgent_workspace #26c83f #26c83f #221f64
+        }
+}

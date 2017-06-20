@@ -1,0 +1,6 @@
+input 2:14:ETPS/2_Elantech_Touchpad {
+    tap enabled
+    middle_emulation enabled
+    scroll_method two_finger
+    click_method clickfinger
+}

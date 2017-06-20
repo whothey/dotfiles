@@ -1,0 +1,24 @@
+# Mode for controlling workspaces beyond $mod+[0-9]
+
+mode "workspaces" {
+    bindsym 1 workspace $WS1
+    bindsym 2 workspace $WS2
+    bindsym 3 workspace $WS3
+    bindsym 4 workspace $WS4
+    bindsym 5 workspace $WS5
+    bindsym 6 workspace $WS6
+    bindsym 7 workspace $WS7
+    bindsym 8 workspace $WS8
+    bindsym 9 workspace $WS9
+    bindsym 0 workspace $WS0
+
+    # Rename workspaces
+    bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace to: '
+    # Create/Switch to Workspaces
+    bindsym $mod+c exec i3-input -F 'workspace "%s"' -P 'Move to/Create Workspace: '
+    # Bind workspace to key
+    # bindsym $mod+b exec i3-input -F 'mode "workspaces" { bindsym "%s" workspace current }' -P 'Bind workspace to key: '
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}

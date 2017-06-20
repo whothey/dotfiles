@@ -1,0 +1,11 @@
+# Mode for customizing windows
+
+mode "window customization" {
+     bindsym t exec i3-input -F 'title_format "%s"' -L 1 -P "Window title: " -f "24px"
+     bindsym p exec i3-input -F 'title_format "%s | %title"' -L 1 -P "Window Prefix: " -f "24px"
+     bindsym b exec i3-msg border toggle
+     bindsym s exec i3-input -F "border pixel %s" -L 1 -P "Border size [pixel]: " -f "24px"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}

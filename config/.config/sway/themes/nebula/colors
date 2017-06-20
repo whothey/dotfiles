@@ -1,0 +1,9 @@
+# Colors / 'Nebula' Theme
+# Class                  border   background  text    indicator  child_border
+client.focused           #5e54b7  #5e54b7     #fffdff
+client.focused_inactive  #0c0d1f  #0c0d1f     #fffdff
+client.unfocused         #211f44  #211f44     #fffdff
+client.urgent            #c57bd5  #c57bd5     #221f64
+# client.placeholder       #
+
+client.background #0c0d1f

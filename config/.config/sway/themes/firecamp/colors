@@ -1,0 +1,9 @@
+# Colors / 'Firecamp' Theme
+#  Class                 border   background  text    indicator  child_border
+client.focused           #ea7f37  #ea7f37     #fffdff
+client.focused_inactive  #934147  #934147     #fffdff
+client.unfocused         #4d2c47  #4d2c47     #fffdff
+client.urgent            #26c83f  #26c83f     #221f64
+# client.placeholder       #
+
+client.background #221821

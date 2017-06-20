@@ -1,0 +1,199 @@
+# Sway Config File
+# whothey
+
+# Mod Key: Mod4 = WinKey (Super) | Mod1 = AltKey
+set $mod Mod4
+set $altMod Mod1
+set $ctrl Control
+set $term urxvtc
+set $menu rofi -show combi -combi-modi window,drun,run -modi combi
+
+# Workspaces
+set $WS1 "1:&#xf120;"
+set $WS2 "2:&#xf0ac;"
+set $WS3 "3:&#xf02d;"
+set $WS4 "4:&#xf0c8;"
+set $WS5 "5:&#xf0c8;"
+set $WS6 "6:&#xf0c8;"
+set $WS7 "7:&#xf086;"
+set $WS8 "8:&#xf108;"
+set $WS9 "9:&#xf001;"
+set $WS0 "10:&#xf121;"
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# font pango:DejaVu Sans 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:FontAwesome 10, DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Windows to Workspaces
+for_window [class="(?i)firefox"] move container to workspace $WS2
+for_window [class="(?i)chromium"] move container to workspace $WS2
+for_window [class="(?i)zathura"] move container to workspace $WS3
+for_window [class="(?i)virtualbox"] move container to workspace $WS8
+for_window [title="(?i)weechat" class="(?i)urxvt"] move container to workspace $WS7
+for_window [class="(?i)spotify"] move container to workspace $WS9
+for_window [class="(?i)emacs"] move container to workspace $WS0
+
+# start a terminal
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec urxvt
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start menu (a program launcher)
+bindsym $mod+p exec sh -c "$menu"
+
+# Vim-way on change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# vim way move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+$ctrl+h splith
+
+# split in vertical orientation
+bindsym $mod+$ctrl+v splitv
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+z focus child
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS0
+
+# Move workspaces through screens
+bindsym $mod+Control+Left  move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
+bindsym $mod+Control+Up    move workspace to output up
+bindsym $mod+Control+Down  move workspace to output down
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
+
+# Mode Keys
+bindsym $mod+r mode "resize"
+bindsym $mod+g mode "workspaces"
+bindsym $mod+$altMod+w mode "window customization"
+
+bindsym $mod+$altMod+r exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace to: '
+bindsym $mod+$altMod+c exec i3-input -F 'workspace "%s"' -P 'Move to/Create Workspace: '
+
+# $mod+PageDown
+bindsym $mod+Next workspace next
+# $mod+PageUp
+bindsym $mod+Prior workspace prev
+
+# Scratchpad uses
+bindsym $mod+Tab scratchpad show
+bindsym $mod+Shift+Tab move scratchpad
+
+bindsym $altMod+Tab workspace back_and_forth
+bindsym $altMod+Shift+Tab move container to workspace back_and_forth
+
+# Touchpad toggling
+bindsym XF86TouchpadToggle exec "~/.scripts/toggle_touchpad.sh"
+
+# Volume Control
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
+
+# Player control
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Brightness
+bindsym XF86MonBrightnessDown exec xbacklight - 10
+bindsym XF86MonBrightnessUp exec xbacklight + 10
+
+# Print
+bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
+bindsym Control_L+Print exec scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
+
+# Screen lock && autolock
+exec xrdb ~/.Xresources
+# bindsym $mod+$altMod+l exec "~/.scripts/lockscript.sh"
+# exec xautolock -time 15 -locker '~/.scripts/lockscript.sh'&
+
+include ./modes/*
+include ./style
+include ./themes/firecamp/*
+include ./inputs
+include ./outputs
+include /etc/sway/config.d/*
