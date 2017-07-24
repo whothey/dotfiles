@@ -7,7 +7,7 @@ export ZSH=/home/whothey/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="lambda-mod"
 # original: robbyrussell
-# maneiro: agnoster, lambda-mod, sonicradish
+# or: agnoster, lambda-mod, sonicradish, fino, jonathan, znroe
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -47,7 +47,7 @@ ZSH_THEME="lambda-mod"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rust)
+plugins=(git rust rustup)
 
 # User configuration
 
@@ -61,9 +61,9 @@ export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='emacsclient -c -t'
+  export EDITOR='nvim'
 else
-  export EDITOR='emacsclient -c'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -76,34 +76,6 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# unregister broken GHC packages. Run this a few times to resolve dependency rot in installed packages.
-# ghc-pkg-clean -f cabal/dev/packages*.conf also works.
-function ghc-pkg-clean() {
-  for p in `ghc-pkg check $* 2>&1  | grep problems | awk '{print $6}' | sed -e 's/:$//'`
-  do
-    echo unregistering $p; ghc-pkg $* unregister $p
-  done
-}
-
-# remove all installed GHC/cabal packages, leaving ~/.cabal binaries and docs in place.
-# When all else fails, use this to get out of dependency hell and start over.
-function ghc-pkg-reset() {
-  if [[ $(readlink -f /proc/$$/exe) =~ zsh ]]; then
-    read 'ans?Erasing all your user ghc and cabal packages - are you sure (y/N)? '
-  else # assume bash/bash compatible otherwise
-    read -p 'Erasing all your user ghc and cabal packages - are you sure (y/N)? ' ans
-  fi
-
-  [[ x$ans =~ "xy" ]] && ( \
-    echo 'erasing directories under ~/.ghc'; command rm -rf `find ~/.ghc/* -maxdepth 1 -type d`; \
-    echo 'erasing ~/.cabal/lib'; command rm -rf ~/.cabal/lib; \
-  )
-}
 
 function toggle-touchpad() {
     if [[ $(synclient -l) =~ 'TouchpadOff[[:space:]]+\=[[:space:]]+([[:digit:]])' ]]; then
