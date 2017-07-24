@@ -51,6 +51,10 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set encoding=utf-8
+set ignorecase
+set autoindent
+set hlsearch " Highlight at each digit
+set mouse=a " Enable mouse
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:racer_cmd = '/home/whothey/.cargo/bin/racer'
