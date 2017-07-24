@@ -1,24 +1,24 @@
-alias cabalupgrades="cabal list --installed  | egrep -iv '(synopsis|homepage|license)'"
-
 # Emacs aliases
 alias emcl="emacsclient -c -a 'emacs'"
 alias emclt="emacsclient -c -t -a 'emacs -nw'"
 
-# Fan aliases
-alias fan_disable="i8kfan -1 0"
-alias fan_calm="i8kfan -1 1"
-alias fan_high="i8kfan -1 2"
-alias fan_info="watch -t 'i8kctl && sensors'"
-alias fan_abuse="watch -n 5 'i8kfan -1 2'"
+alias ssh="TERM=rxvt ssh"
 
 # Other aliases
 alias vbox_enable="please rcvboxdrv setup"
 alias xup="xrdb ~/.Xresources"
 
-alias setup_screens_home="xrandr --output LVDS1 --auto --primary --output VGA1 --auto --left-of LVDS1; ~/.fehbg"
 alias available_wifi_networks="nmcli dev wifi list"
 alias openwee="urxvt -e weechat"
 alias weather_here="curl -4 http://wttr.in/Chapeco"
 
 alias ohrust="rustc --explain"
-alias cssemester="cd ~/Documents/UFFS/2016-2/"
+alias cssemester="cd $CSSEMESTER"
+alias engage="systemctl --user start"
+alias reengage="systemctl --user restart"
+alias disengage="systemctl --user stop"
+
+# Screen setup
+alias xsc_reading="xrandr --output LVDS1 --primary --right-of HDMI1 --auto --output HDMI1 --rotate left --auto"
+alias xsc_watching="xrandr --output HDMI1 --primary --rotate normal --auto --output LVDS1 --off"
+alias xsc_dual="xrandr --output HDMI1 --primary --rotate normal --auto --output LVDS1 --below HDMI1 --auto"
