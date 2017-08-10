@@ -6,18 +6,18 @@ filesystem, and sometimes I just want to share these across machines (work/home)
 
 ## My setup 
 
-I'm currently sharing these files between Antegos/Fedora systems, and using some
-standard apps across them:
+I'm currently using these files in the ArchLinux Distro, and using some standard apps:
 
 | Function       | Primary             | Secondary      |
 | -------------- | ------------------- | -------------- |
-| Window Manager | i3                  | Gnome          |
+| Window Manager | sway                | Gnome / i3     |
 | Terminal       | urxvt               | Gnome Terminal |
 | Shell          | zsh + oh-my-zsh     | Bash           |
-| Editor         | Emacs(Spacemacs)    | VIM (spf13)    |
+| Editor         | NVIM                | VIM            |
 | Web Browser    | Firefox(Vimperator) | Chrome         |
 | File explorer  | ranger              | Nautilus       |
-| PDF Viewer     | zathura             | --             |
+| PDF Viewer     | zathura             | Evince         |
+| Image Viewer   | imv                 | eog            |
 
 ~~I've actualy listed these to show about some dotfiles~~
 I actualy don't know why I've made this table.
