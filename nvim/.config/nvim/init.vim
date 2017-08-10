@@ -31,6 +31,8 @@ NeoBundle 'w0rp/ale'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'jwalton512/vim-blade'
 NeoBundle 'tpope/vim-haml'
+NeoBundle 'baabelfish/nvim-nim'
+NeoBundle 'shawncplus/phpcomplete.vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -51,10 +53,12 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set encoding=utf-8
+set tags+=tags;/
 set ignorecase
 set autoindent
 set hlsearch " Highlight at each digit
 set mouse=a " Enable mouse
+set colorcolumn=100,120
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:racer_cmd = '/home/whothey/.cargo/bin/racer'
@@ -92,12 +96,15 @@ nmap <Leader>ep <Plug>(ale_previous)
 nmap <Leader>et <Plug>(ale_toggle)
 nmap <Leader>ed <Plug>(ale_details)
 
+nmap <Leader>pt :NERDTreeToggle<CR>
+nmap <C-j> :tag<Space>
+
 " Tabs
-nnoremap th  :tabfirst<CR>
-nnoremap tp  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnext<CR>
-nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
+nnoremap <Leader>th  :tabfirst<CR>
+nnoremap <Leader>tp  :tabprev<CR>
+nnoremap <Leader>tl  :tablast<CR>
+nnoremap <Leader>tt  :tabedit<Space>
+nnoremap <Leader>tn  :tabnext<CR>
+nnoremap <Leader>tm  :tabm<Space>
+nnoremap <Leader>td  :tabclose<CR>
 
