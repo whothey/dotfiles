@@ -1,0 +1,37 @@
+#!/bin/bash
+
+INSTANCE="${BLOCK_INSTANCE}"
+
+if [[ "${INSTANCE}" != "" ]]; then
+  ARGUMENTS="${INSTANCE}"
+fi
+
+ICON_PLAY=""
+ICON_PAUSE=""
+ICON_STOP=""
+CUR_ICON=""
+
+if [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
+    $(mpc prev)
+elif [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+    $(mpc toggle)
+elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
+    $(mpc next)
+fi
+
+PLAYER_INFO=$(mpc status --format "%artist% - %title%")
+PLAYER_STATUS=$(echo $PLAYER_INFO | grep "\[[a-z]\+\]" -o)
+INFO_SONG=$(mpc status --format "%artist% - %title%" | head -1)
+
+if [[ "${PLAYER_STATUS}" = "[paused]" ]]; then
+  CUR_ICON="${ICON_PAUSE}"
+elif [[ "${PLAYER_STATUS}" = "[playing]" ]]; then
+  CUR_ICON="${ICON_PLAY}"
+else
+  CUR_ICON="${ICON_STOP}"
+fi
+
+if [[ "${PLAYER_STATUS}" != "" ]]; then
+    echo "${CUR_ICON}  ${INFO_SONG}"
+    echo "${CUR_ICON}  ${INFO_SONG}"
+fi

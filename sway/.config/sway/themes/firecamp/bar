@@ -1,10 +1,11 @@
 # Firecamp Theme Bar
 
 bar {
-        font pango:FontAwesome 11, DejaVu Sans Mono 8 
+        font pango:FontAwesome 11, xos4 Terminess Powerline 9
         status_command i3blocks
         position top
         separator_symbol ""
+        height 30
 
         colors {
                # Firecamp Theme (~paraiso)

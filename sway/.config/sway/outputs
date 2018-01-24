@@ -1,6 +1,6 @@
 # Resolutions
-output HDMI-A-1 pos 0,0 res 1920x1080
-output LVDS-1 pos 0,1080 res 1920x1080
+output HDMI-A-1 pos 1920,0 res 1920x1080
+output LVDS-1 pos 0,0 res 1920x1080
 
 # Wallpaper
-output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/whothey/Images/Wallpapers/080_Website-Project-Black-Holes_Kurzgesagt-Header.png fit

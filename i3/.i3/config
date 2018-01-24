@@ -13,6 +13,8 @@
 set $mod Mod4
 set $altMod Mod1
 set $ctrl Control
+set $term urxvtc
+set $menu rofi -show combi -combi-modi window,drun,run -modi combi
 
 # Workspaces
 set $WS1 "1:&#xf120;"
@@ -45,7 +47,7 @@ font pango:FontAwesome 10, DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec urxvt
 
 # kill focused window
@@ -58,7 +60,9 @@ bindsym $mod+Shift+q kill
 # j4-nebula-theme
 # bindsym $mod+d exec "j4-dmenu-desktop --dmenu=\\"(cat ; (stest -flx $(echo $PATH | tr : ' ') | sort -u)) | dmenu -nb \#211f44 -nf \#fffdff -sb \#c57bd5 -sf \#221f64 -i\\""
 # j4-firecamp-theme
-bindsym $mod+d exec "j4-dmenu-desktop --dmenu=\\"(cat ; (stest -flx $(echo $PATH | tr : ' ') | sort -u)) | dmenu -nb \#2f1e2e -nf \#fffdff -sb \#e9723a -sf \#4c2b46 -i\\""
+#bindsym $mod+d exec "j4-dmenu-desktop --dmenu=\\"(cat ; (stest -flx $(echo $PATH | tr : ' ') | sort -u)) | dmenu -nb \#2f1e2e -nf \#fffdff -sb \#e9723a -sf \#4c2b46 -i\\""
+
+bindsym $mod+p exec sh -c "$menu"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -77,7 +81,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# !!DISABLED!! vim way move focused window
+# vim way move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -90,10 +94,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+$ctrl+h split h
+bindsym $mod+$ctrl+h splith
 
 # split in vertical orientation
-bindsym $mod+$ctrl+v split v
+bindsym $mod+$ctrl+v splitv
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -150,7 +154,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -160,10 +165,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        # indsym j resize shrink width 10 px or 10 ppt
-        # indsym k resize grow height 10 px or 10 ppt
-        # indsym l resize shrink height 10 px or 10 ppt
-        # indsym ccedilla resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -178,32 +183,34 @@ mode "resize" {
 
 # Mode for controlling workspaces beyond $mod+[0-9]
 mode "workspaces" {
-	   bindsym 1 workspace $WS1
-	   bindsym 2 workspace $WS2
-	   bindsym 3 workspace $WS3
-     bindsym 4 workspace $WS4
-     bindsym 5 workspace $WS5
-     bindsym 6 workspace $WS6
-     bindsym 7 workspace $WS7
-     bindsym 8 workspace $WS8
-	   bindsym 9 workspace $WS9
-	   bindsym 0 workspace $WS0
+    bindsym 1 workspace $WS1
+    bindsym 2 workspace $WS2
+    bindsym 3 workspace $WS3
+    bindsym 4 workspace $WS4
+    bindsym 5 workspace $WS5
+    bindsym 6 workspace $WS6
+    bindsym 7 workspace $WS7
+    bindsym 8 workspace $WS8
+    bindsym 9 workspace $WS9
+    bindsym 0 workspace $WS0
 
-     # Rename workspaces
-     bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace to: '
-     # Create/Switch to Workspaces
-     bindsym $mod+c exec i3-input -F 'workspace "%s"' -P 'Move to/Create Workspace: '
-     # Bind workspace to key
-     # bindsym $mod+b exec i3-input -F 'mode "workspaces" { bindsym "%s" workspace current }' -P 'Bind workspace to key: '
-     
-     bindsym Escape mode "default"
+    # Rename workspaces
+    bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'Rename workspace to: '
+    # Create/Switch to Workspaces
+    bindsym $mod+c exec i3-input -F 'workspace "%s"' -P 'Move to/Create Workspace: '
+    # Bind workspace to key
+    # bindsym $mod+b exec i3-input -F 'mode "workspaces" { bindsym "%s" workspace current }' -P 'Bind workspace to key: '
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
 }
 
-# Mode for launching applications
-mode "launcher" {
-     bindsym f exec firefox
-     bindsym e exec emcl
-     bindsym w exec "urxvtc -e weechat"
+# Mode for customizing windows
+mode "window customization" {
+     bindsym t exec i3-input -F 'title_format "%s"' -L 1 -P "Window title: " -f "24px"
+     bindsym p exec i3-input -F 'title_format "%s | %title"' -L 1 -P "Window Prefix: " -f "24px"
+     bindsym b exec i3-msg border toggle
+     bindsym s exec i3-input -F "border pixel %s" -L 1 -P "Border size [pixel]: " -f "24px"
 
      bindsym Return mode "default"
      bindsym Escape mode "default"
@@ -211,8 +218,8 @@ mode "launcher" {
 
 # Mode Keys
 bindsym $mod+r mode "resize"
-bindsym $mod+p mode "launcher"
 bindsym $mod+g mode "workspaces"
+bindsym $mod+$altMod+w mode "window customization"
 
 # Colors / 'Nebula' Theme
 #  Class                 border   background  text    indicator  child_border
@@ -280,7 +287,15 @@ bar {
 
 ## Custom ##
 hide_edge_borders both
-new_window 1pixel
+new_window pixel 1
+border pixel 1
+gaps 10
+gaps outer all plus 5
+smart_gaps on
+
+output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output HDMI-A-1 pos 0,0 res 1920x1080
+output LVDS-1 pos 0,1080 res 1920x1080
 
 # Windows to Workspaces
 for_window [class="(?i)firefox"] move container to workspace $WS2
@@ -328,8 +343,8 @@ bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
 bindsym Control_L+Print exec scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
 
 # Screen lock && autolock
-bindsym $mod+$altMod+l exec "~/.scripts/lockscript.sh"
-exec xautolock -time 15 -locker '~/.scripts/lockscript.sh'&
+exec xrdb ~/.Xresources
+# bindsym $mod+$altMod+l exec "~/.scripts/lockscript.sh"
+# exec xautolock -time 15 -locker '~/.scripts/lockscript.sh'&
 
-# Background
-exec ~/.fehbg &
+include /etc/sway/config.d/*

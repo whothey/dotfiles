@@ -30,9 +30,13 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[playerctl]
+#[playerctl]
+#command=~/.scripts/i3blocks/$BLOCK_NAME
+#interval=5
+
+[mpc]
 command=~/.scripts/i3blocks/$BLOCK_NAME
-interval=5
+interval=10
 
 # Volume indicator
 #
@@ -52,7 +56,7 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
+label=
 separator=false
 interval=30
 
@@ -118,6 +122,11 @@ command=~/.scripts/i3blocks/$BLOCK_NAME
 instance=0
 interval=30
 
+# [weather]
+# command=~/.scripts/i3blocks/$BLOCK_NAME
+# instance=3466296
+# interval=60
+
 # Date Time
 #
 [time]
@@ -146,7 +155,7 @@ interval=5
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [temperature]
-label=
+label=
 interval=10
 
 # Key indicators

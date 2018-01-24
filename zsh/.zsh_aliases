@@ -1,4 +1,6 @@
 # Emacs aliases
+alias spacemacs="HOME=$HOME/spacemacs emacs"
+alias spaceclient="HOME=$HOME/spacemacs emacsclient -c -a 'emacs'"
 alias emcl="emacsclient -c -a 'emacs'"
 alias emclt="emacsclient -c -t -a 'emacs -nw'"
 
@@ -9,6 +11,7 @@ alias vbox_enable="please rcvboxdrv setup"
 alias xup="xrdb ~/.Xresources"
 
 alias available_wifi_networks="nmcli dev wifi list"
+alias wifi-connect="sudo ip link set wlp8s0 down && sudo wifi-menu"
 alias openwee="urxvt -e weechat"
 alias weather_here="curl -4 http://wttr.in/Chapeco"
 

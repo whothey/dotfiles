@@ -12,7 +12,7 @@ set $menu rofi -show combi -combi-modi window,drun,run -modi combi
 set $WS1 "1:&#xf120;"
 set $WS2 "2:&#xf0ac;"
 set $WS3 "3:&#xf02d;"
-set $WS4 "4:&#xf0c8;"
+set $WS4 "4:&#xf1fc;"
 set $WS5 "5:&#xf0c8;"
 set $WS6 "6:&#xf0c8;"
 set $WS7 "7:&#xf086;"
@@ -26,7 +26,7 @@ set $WS0 "10:&#xf121;"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:FontAwesome 10, DejaVu Sans Mono 8
+font pango:Font Awesome 5 Free Regular 10, xos4 Terminess Powerline 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -168,12 +168,18 @@ bindsym $altMod+Shift+Tab move container to workspace back_and_forth
 # Touchpad toggling
 bindsym XF86TouchpadToggle exec "~/.scripts/toggle_touchpad.sh"
 
+# Hotkeys
+bindsym XF86HomePage exec firefox
+bindsym XF86Explorer exec nautilus
+bindsym XF86Calculator exec gnome-calulator
+
 # Volume Control
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
 
 # Player control
+bindsym XF86Tools     exec spotify
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
