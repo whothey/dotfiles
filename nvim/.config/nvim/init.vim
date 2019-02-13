@@ -301,21 +301,12 @@ augroup js_configfiles
   autocmd BufNewFile,BufRead *.postcssrc set syntax=json
 augroup END
 
-function MyLightTheme()
+function! MyLightTheme()
   colorscheme base16-atelier-plateau-light
   AirlineTheme base16_3024
 endfunction
 
-function MyDarkTheme()
+function! MyDarkTheme()
   colorscheme dracula
   AirlineTheme dracula
 endfunction
-
-" function NERDTreeFindOrToggle()
-  " Current NERDTree Buffer t:NERDTreeBufferName
-  " Check if it is Open: g:NERDTree.IsOpen()
-
-  " if (g:NERDTree.IsOpen())
-  "   NERDTreeClose
-  " else
-" endfunction
