@@ -165,7 +165,7 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> Ç :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -223,7 +223,7 @@ nmap <leader>bf :Denite buffer<CR>
 nmap <leader>pf :Denite file/rec<CR>
 nmap <leader>ff :NERDTreeFind<CR>
 " Git
-nmap <leader>gs :Magit<CR>
+nmap <leader>gs :Gstatus<CR>
 
 " Buffer
 nmap <leader>bd :bd<CR>
@@ -240,9 +240,6 @@ nmap <leader>te :tabedit
 
 "Terminal
 nmap <leader>Tn :tabnew<CR>:terminal<CR>A
-
-" Wraps text/symbol inside a console.log($match);
-nmap <leader>ll yiWoconsole.log(<ESC>pA;<ESC>^
 
 " Search
 nmap <M-/> /\<\><left><left>
