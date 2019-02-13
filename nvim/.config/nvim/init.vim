@@ -164,13 +164,12 @@ augroup NERDOpen
 augroup END
 
 " Enable NCM2
+autocmd TextChangedI * call ncm2#auto_trigger()
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> Ç :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -221,8 +220,13 @@ nmap <leader>pT :!urxvtc -title "Test on $(basename $PWD) from nvim" -e zsh -ic 
 
 nmap <leader>vc :tabedit $MYVIMRC<CR>
 
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :TagbarToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :TagbarToggle<CR>
+nnoremap <F4> :call LanguageClient_textDocument_hover()<CR>
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <F7> :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <F8> :call LanguageClient_textDocument_documentSymbol()<CR>
 
 " Buffer fuzzy finder
 nmap <leader>bf :Denite buffer<CR>
