@@ -73,6 +73,7 @@ Plug 'szorfein/fromthehell.vim'
 Plug 'cseelus/vim-colors-tone'
 Plug 'chriskempson/base16-vim'
 
+Plug 'junegunn/fzf'
 Plug 'shougo/denite.nvim'
 Plug 'easymotion/vim-easymotion'
 
