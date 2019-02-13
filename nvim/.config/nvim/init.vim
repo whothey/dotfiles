@@ -152,6 +152,12 @@ let g:LanguageClient_serverCommands = {
 
 set completeopt=noinsert,menuone,noselect
 
+augroup NERDOpen
+  au!
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+augroup END
+
 " Enable NCM2
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
