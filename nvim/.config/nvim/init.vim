@@ -143,6 +143,8 @@ Plug 'kana/vim-textobj-user'
 
 call plug#end()
 
+inoremap <c-c> <ESC>
+
 let g:LanguageClient_serverCommands = {
       \ 'javascript': ['javascript-typescript-stdio'],
       \ 'javascript.jsx': ['javascript-typescript-stdio'],
@@ -151,6 +153,9 @@ let g:LanguageClient_serverCommands = {
       \ }
 
 set completeopt=noinsert,menuone,noselect
+set shortmess+=c
+
+let NERDTreeRespectWildIgnore=1
 
 augroup NERDOpen
   au!
