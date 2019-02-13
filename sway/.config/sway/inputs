@@ -4,3 +4,8 @@ input 2:14:ETPS/2_Elantech_Touchpad {
     scroll_method two_finger
     click_method clickfinger
 }
+
+input 16700:8464:Dell_Dell_Wired_Multimedia_Keyboard {
+  xkb_layout br
+  xkb_numlock enabled
+}

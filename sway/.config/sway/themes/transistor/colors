@@ -1,0 +1,17 @@
+set $greeny #366853
+set $orango #956338
+set $darkgreeny #364938
+set $redtransistor #943c14
+set $almostblack #11211b
+set $lightgreeny #0ca187
+set $neutral #818560
+
+# Colors / 'Transistor' Theme
+#  Class                 border          background      text           indicator     child_border
+client.focused           $lightgreeny    $lightgreeny    #fffdff        $lightgreeny  $lightgreeny
+client.focused_inactive  $greeny         $greeny         #fffdff        $greeny       $greeny
+client.unfocused         $greeny         $greeny         #fffdff        $greeny       $greeny
+client.urgent            $redtransistor  $redtransistor  $almostblack   $redtransistor $redtransistor
+# client.placeholder       #
+
+client.background $darkgreeny
