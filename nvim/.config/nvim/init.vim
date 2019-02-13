@@ -214,6 +214,8 @@ nmap <leader>p' <C-w>s<C-w>j<C-w>-<C-w>- :terminal<CR>A
 
 nmap <leader>pT :!urxvtc -title "Test on $(basename $PWD) from nvim" -e zsh -ic "npm test \|\| (echo 'Press [Enter] to close...' && read -n 1)"<CR><CR>
 
+nmap <leader>vc :tabedit $MYVIMRC<CR>
+
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 
