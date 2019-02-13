@@ -68,8 +68,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-fugitive'
 
-Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
-
 Plug 'flazz/vim-colorschemes'
 Plug 'szorfein/fromthehell.vim'
 Plug 'cseelus/vim-colors-tone'
@@ -95,14 +93,15 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 "Plug 'valloric/youcompleteme', { 'do': 'python3 install.py --rust-completer --clang-completer --ts-completer' }
 
+Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
+Plug 'phpactor/ncm2-phpactor'
+Plug 'jwalton512/vim-blade'
+Plug 'posva/vim-vue'
+
 " Completer
 " This first is the dependency
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
-
-Plug 'phpactor/ncm2-phpactor'
-Plug 'jwalton512/vim-blade'
-Plug 'posva/vim-vue'
 
 " Completer Plugins
 Plug 'ncm2/ncm2-vim'
