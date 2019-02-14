@@ -9,25 +9,6 @@ let g:UltiSnipsJumpForwardTrigger="<M-N>"
 let g:UltiSnipsJumpBackwardTrigger="<M-B>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "privatesnippets"]
 
-let g:ycm_semantic_triggers =  {
-  \   'c': ['->', '.'],
-  \   'objc': ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s', 're!\[.*\]\s'],
-  \   'ocaml': ['.', '#'],
-  \   'cpp,cuda,objcpp': ['->', '.', '::'],
-  \   'perl': ['->'],
-  \   'php': ['->', '::'],
-  \   'javascript,typescript,jsx': ['.', '/', "re!\w\w+", "re![{('\"}]\s*", 're!import\s*', '<', 're!\<\w+\s*'],
-  \   'cs,d,elixir,go,groovy,java,julia,perl6,python,scala,vb': ['.'],
-  \   'ruby,rust': ['.', '::'],
-  \   'lua': ['.', ':'],
-  \   'erlang': [':'],
-  \ }
-
-let g:ycm_auto_trigger = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
 let g:airline_powerline_fonts=1
 let g:airline_theme='dracula'
 let g:airline#extensions#branch#enabled=1
@@ -92,7 +73,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-"Plug 'valloric/youcompleteme', { 'do': 'python3 install.py --rust-completer --clang-completer --ts-completer' }
 
 Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
 Plug 'phpactor/ncm2-phpactor'
