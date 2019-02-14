@@ -1,0 +1,27 @@
+# Transistor Theme Bar
+
+bar {
+        font pango:FontAwesome 5 Free 11, xos4 Terminess Powerline 9
+        status_command i3blocks
+        position top
+        pango_markup enabled
+        separator_symbol ""
+        height 30
+
+        colors {
+               background #000000
+               focused_background $almostblack
+               statusline #f5e3ff
+               focused_statusline #fffdff
+               separator #4c2b46
+               focused_separator #e9723a
+
+               # Workspace Buttons
+               active_workspace $greeny $greeny #fffdff 
+               focused_workspace $lightgreeny $lightgreeny #fffdff
+               inactive_workspace $almostblack $almostblack #fffdff
+               # inactive_workspace #241c33 #241c33 #fffdff  # alt
+               # binding_mode also
+               urgent_workspace $redtransistor $redtransistor #221f64
+        }
+}

@@ -6,7 +6,9 @@ set $mod Mod4
 set $altMod Mod1
 set $ctrl Control
 set $term urxvtc
+set $browser chromium
 set $menu rofi -show combi -combi-modi window,drun,run -modi combi
+set $theme transistor
 
 # Workspaces
 set $WS1 "1:&#xf120;"
@@ -17,7 +19,7 @@ set $WS5 "5:&#xf0c8;"
 set $WS6 "6:&#xf0c8;"
 set $WS7 "7:&#xf086;"
 set $WS8 "8:&#xf108;"
-set $WS9 "9:&#xf001;"
+set $WS9 "9:&#xf04b;"
 set $WS0 "10:&#xf121;"
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -169,11 +171,13 @@ bindsym $altMod+Shift+Tab move container to workspace back_and_forth
 bindsym XF86TouchpadToggle exec "~/.scripts/toggle_touchpad.sh"
 
 # Hotkeys
-bindsym XF86HomePage exec firefox
-bindsym XF86Explorer exec nautilus
+bindsym XF86HomePage exec $browser
+bindsym XF86Explorer exec emacsclient -c
 bindsym XF86Calculator exec gnome-calulator
 
 # Volume Control
+# pactl list sinks | grep -B 1 RUNNING | sed '1q;d' | sed 's/[^0-9]\+//g'
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume Master 5%+ && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
@@ -189,17 +193,23 @@ bindsym XF86MonBrightnessDown exec xbacklight - 10
 bindsym XF86MonBrightnessUp exec xbacklight + 10
 
 # Print
-bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
+# bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
 bindsym Control_L+Print exec scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
 
 # Screen lock && autolock
 exec xrdb ~/.Xresources
+exec setxkbmap br
 # bindsym $mod+$altMod+l exec "~/.scripts/lockscript.sh"
 # exec xautolock -time 15 -locker '~/.scripts/lockscript.sh'&
 
 include ./modes/*
 include ./style
-include ./themes/firecamp/*
+
+# Theme Loader
+include ./themes/$theme/colors
+include ./themes/$theme/bar
+include ./themes/$theme/wallpaper
+
 include ./inputs
 include ./outputs
 include /etc/sway/config.d/*
