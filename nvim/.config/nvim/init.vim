@@ -18,6 +18,8 @@ let g:airline#extensions#tagbar#enabled = 1
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
 
+let g:self#enable_php_plugins = $VIM_ENABLE_PHP_PLUGINS
+
 set mouse=a
 set mousemodel=popup
 set shell=zsh
@@ -76,10 +78,12 @@ Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
-Plug 'phpactor/ncm2-phpactor'
-Plug 'jwalton512/vim-blade'
-Plug 'posva/vim-vue'
+if self#enable_php_plugins
+  Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
+  Plug 'phpactor/ncm2-phpactor'
+  Plug 'jwalton512/vim-blade'
+  Plug 'posva/vim-vue'
+endif
 
 " Completer
 " This first is the dependency
