@@ -42,7 +42,7 @@ set incsearch
 set ignorecase
 set smartcase
 set autoread
-set wildignore+="*.o,*.a,node_modules/*,dist"
+set wildignore+="*.o,*.a,node_modules,dist"
 
 set list
 set listchars=tab:»\ ,trail:·
@@ -141,7 +141,8 @@ let g:LanguageClient_serverCommands = {
 set completeopt=noinsert,menuone,noselect
 set shortmess+=c
 
-let NERDTreeRespectWildIgnore=1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeRespectWildIgnore=1
 
 augroup NERDOpen
   au!
