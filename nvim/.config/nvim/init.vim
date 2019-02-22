@@ -169,7 +169,7 @@ let g:ale_linters = {
       \ }
 
 let g:ale_fixers = {
-      \ 'javascript': ['eslint'],
+      \ 'javascript': ['eslint', 'importjs'],
       \ 'rust': ['rustfmt'],
       \ 'php': ['php_cs_fixer']
       \ }
@@ -214,6 +214,7 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> <F7> :call LanguageClient#textDocument_codeAction()<CR>
 nnoremap <F8> :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <F9> <Plug>(ale_fix)
 
 " Buffer fuzzy finder
 nmap <leader>bf :Denite buffer<CR>
