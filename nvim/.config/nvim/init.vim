@@ -58,8 +58,8 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'elixir-lang/vim-elixir'
 
-Plug 'junegunn/fzf'
-Plug 'shougo/denite.nvim'
+Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'majutsushi/tagbar'
@@ -180,23 +180,6 @@ nmap <leader>en <Plug>(ale_next_wrap)
 nmap <leader>ep <Plug>(ale_previous_wrap)
 nmap <leader>el <Plug>(ale_detail)
 
-call denite#custom#var('file/rec',
-      \ 'command',
-      \ ['git', 'ls-files', '--cached', '--others', '--exclude-standard'])
-
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-j>',
-      \ '<denite:move_to_next_line>',
-      \ 'noremap'
-      \)
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-k>',
-      \ '<denite:move_to_previous_line>',
-      \ 'noremap'
-      \)
-
 "" Project
 " Project terminal
 nmap <leader>p' <C-w>s<C-w>j<C-w>-<C-w>- :terminal<CR>A
@@ -217,10 +200,11 @@ nnoremap <F8> :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <F9> <Plug>(ale_fix)
 
 " Buffer fuzzy finder
-nmap <leader>bf :Denite buffer<CR>
+nmap <leader>bf :Buffers<CR>
 " File fuzzy finder
-nmap <leader>pf :Denite file/rec<CR>
-nmap <leader>ff :NERDTreeFind<CR>
+nmap <leader>pf :GFiles<CR>
+nmap <leader>ff :FZF<CR>
+nmap <leader>ft :NERDTreeFind<CR>
 " Git
 nmap <leader>gs :Gstatus<CR>
 
