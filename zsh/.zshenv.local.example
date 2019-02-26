@@ -1,0 +1,4 @@
+# Copy this file to $HOME/.zshenv.local to be included in shell preload
+
+# Enable NVIM PHP Plugins
+# export VIM_ENABLE_PHP_PLUGINS=1
