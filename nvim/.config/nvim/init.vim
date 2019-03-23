@@ -43,6 +43,7 @@ set ignorecase
 set smartcase
 set autoread
 set wildignore+="*.o,*.a,node_modules,dist"
+set guifont="Fira Mono for Powerline:h14"
 
 set list
 set listchars=tab:»\ ,trail:·
@@ -73,6 +74,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'pbrisbin/vim-mkdir'
 
 Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
@@ -212,6 +214,7 @@ nmap <leader>bf :Buffers<CR>
 nmap <leader>pf :GFiles --cached --others --exclude-standard<CR>
 nmap <leader>ff :FZF<CR>
 nmap <leader>ft :NERDTreeFind<CR>
+nmap <leader>pg :GGrep<CR>
 " Git
 nmap <leader>gs :Gstatus<CR>
 
@@ -227,12 +230,15 @@ nmap <leader>tn :tabnext<CR>
 nmap <leader>tN :tabnew<CR>
 nmap <leader>tp :tabprevious<CR>
 nmap <leader>te :tabedit
+nmap <C-Tab> :tabnext<CR>
+nmap <C-S-Tab> :tabprev<CR>
 
 "Terminal
 nmap <leader>Tn :tabnew<CR>:terminal<CR>A
 
 " Search
 nmap <M-/> /\<\><left><left>
+nmap ;/ :nohlsearch<CR>
 
 " Move lines
 vmap <M-k> :'<,'>m-2<CR>
