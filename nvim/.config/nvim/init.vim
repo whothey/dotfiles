@@ -95,7 +95,14 @@ Plug 'ncm2/ncm2-vim'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-ultisnips'
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'ncm2/ncm2-vim-lsp'
+Plug 'ryanolsonx/vim-lsp-javascript'
+
+if exists("gnvim")
+  Plug 'vhakulinen/gnvim-lsp'
+endif
 
 " Syntax
 Plug 'rust-lang/rust.vim'
@@ -137,13 +144,6 @@ command! -bang -nargs=* GGrep
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0]  }, <bang>0)
 
 
-let g:LanguageClient_serverCommands = {
-      \ 'javascript': ['javascript-typescript-stdio'],
-      \ 'javascript.jsx': ['javascript-typescript-stdio'],
-      \ 'typescript': ['javascript-typescript-stdio'],
-      \ 'php': ['phpactor']
-      \ }
-
 set completeopt=noinsert,menuone,noselect
 set shortmess+=c
 
@@ -161,8 +161,8 @@ autocmd TextChangedI * call ncm2#auto_trigger()
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " Or map each action separately
-nnoremap <silent> Ç :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gd :LspDeclaration<CR>
+nnoremap <silent> gdd :LspDefinition<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -198,12 +198,13 @@ nmap <leader>vc :tabedit $MYVIMRC<CR>
 
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :TagbarToggle<CR>
-nnoremap <F4> :call LanguageClient_textDocument_hover()<CR>
+nnoremap <F4> :LspHover<CR>
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> <F6> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <F7> :call LanguageClient#textDocument_codeAction()<CR>
-nnoremap <F8> :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <F9> <Plug>(ale_fix)
+nnoremap <silent> <F6> :LspRename<CR>
+noremap <silent> <F7> :LspCodeAction<CR>
+nnoremap <F8> :LspDocumentSymbol<CR>
+nnoremap <F9> :LspWorkspaceSymbol<CR>
+nnoremap <F10> <Plug>(ale_fix)
 
 " Buffer fuzzy finder
 nmap <leader>bf :Buffers<CR>
@@ -278,6 +279,14 @@ match VendorPrefix /-\(moz\|webkit\|o\|ms\)-[a-zA-Z-]\+/
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%101v.\+/
+
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
 
 " AutoCmds
 augroup js_configfiles
