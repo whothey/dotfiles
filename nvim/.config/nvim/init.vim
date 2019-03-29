@@ -19,6 +19,7 @@ let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
 
 let g:self#enable_php_plugins = $VIM_ENABLE_PHP_PLUGINS
+let g:self#enable_erlang_plugins = $VIM_ENABLE_ERLANG_PLUGINS
 
 set mouse=a
 set mousemodel=popup
@@ -110,6 +111,17 @@ endif
 Plug 'rust-lang/rust.vim'
 Plug 'slashmili/alchemist.vim'
 
+" Erlang
+if self#enable_erlang_plugins
+  Plug 'vim-erlang/vim-erlang-omnicomplete'
+  Plug 'vim-erlang/vim-erlang-runtime'
+  Plug 'vim-erlang/vim-erlang-tags'
+  Plug 'vim-erlang/vim-erlang-compiler'
+  Plug 'edkolev/erlang-motions.vim'
+  Plug 'vim-erlang/vim-erlang-skeletons'
+  Plug 'vim-erlang/vim-dialyzer'
+endif
+
 " JS/JSX
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -187,6 +199,10 @@ nmap <leader>ef <Plug>(ale_fix)
 nmap <leader>en <Plug>(ale_next_wrap)
 nmap <leader>ep <Plug>(ale_previous_wrap)
 nmap <leader>el <Plug>(ale_detail)
+
+let g:ale_pattern_options = {
+      \ '.*\.[eh]rl$': { 'ale_enabled': 0 }
+      \ }
 
 "" Project
 " Project terminal
