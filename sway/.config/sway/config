@@ -5,7 +5,7 @@
 set $mod Mod4
 set $altMod Mod1
 set $ctrl Control
-set $term urxvtc
+set $term termite
 set $browser chromium
 set $menu rofi -show combi -combi-modi window,drun,run -modi combi
 set $theme transistor
