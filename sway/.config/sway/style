@@ -1,4 +1,4 @@
 hide_edge_borders both
-new_window pixel 1
+default_border pixel 1
 gaps inner 10
 smart_gaps on
