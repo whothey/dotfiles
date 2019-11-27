@@ -50,15 +50,20 @@ assign [title="(?i)spotify"] workspace $WS9
 assign [title="(?i)emacs"] workspace $WS0
 assign [title="Code"] workspace $WS0
 
+for_window [app_id="termite_float"] floating enable
+
+for_window [app_id="termite_launcher"] floating enable, border none, resize set width 900 px height 400 px
+
 # start a terminal
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec urxvt
+bindsym $mod+Shift+Return exec $term --name=termite_float
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start menu (a program launcher)
 bindsym $mod+p exec sh -c "$menu"
+bindsym $mod+Shift+p exec $term --name=termite_launcher --config="$HOME/.config/termite/config.launcher" --title="Launcher" -e "$HOME/.scripts/launcher.sh"
 
 # Vim-way on change focus
 bindsym $mod+h focus left
@@ -100,6 +105,7 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+$altMod+space sticky enable
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -194,14 +200,18 @@ bindsym XF86MonBrightnessDown exec xbacklight - 10
 bindsym XF86MonBrightnessUp exec xbacklight + 10
 
 # Print
-# bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
-bindsym Control_L+Print exec scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
+bindsym Print exec grim "$HOME/Pictures/Screenshots/$(date +'%F_%H-%M-%S').png"
+bindsym Alt+Print exec grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +'%F_%H-%M-%S').png"
 
 # Screen lock && autolock
 exec xrdb ~/.Xresources
 exec setxkbmap br
-# bindsym $mod+$altMod+l exec "~/.scripts/lockscript.sh"
-# exec xautolock -time 15 -locker '~/.scripts/lockscript.sh'&
+bindsym $mod+Pause exec "~/.scripts/lockscript.sh"
+exec swayidle -w \
+  timeout 300 "~/.scripts/lockscript.sh" \
+  timeout 600 "swaymsg output * dpms off" \
+    resume "swaymsg output * dpms on" \
+  before-sleep "~/.scripts/lockscript.sh"
 
 include ./modes/*
 include ./style

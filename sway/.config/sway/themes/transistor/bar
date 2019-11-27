@@ -2,7 +2,7 @@
 
 bar {
         font pango:FontAwesome 5 Free 11, xos4 Terminess Powerline 9
-        status_command i3blocks
+        swaybar_command waybar
         position top
         pango_markup enabled
         separator_symbol ""
@@ -17,7 +17,7 @@ bar {
                focused_separator #e9723a
 
                # Workspace Buttons
-               active_workspace $greeny $greeny #fffdff 
+               active_workspace $greeny $greeny #fffdff
                focused_workspace $lightgreeny $lightgreeny #fffdff
                inactive_workspace $almostblack $almostblack #fffdff
                # inactive_workspace #241c33 #241c33 #fffdff  # alt
