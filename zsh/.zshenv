@@ -2,11 +2,13 @@
 
 LOCAL_ENV="$HOME/.zshenv.local"
 
+export GOPATH=`go env GOPATH`
+
 # .oh-my-zsh default
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
 # My PATH Updates
-export PATH="$PATH:$HOME/.composer/vendor/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/anaconda3/bin:$HOME/.yarn/bin"
+export PATH="$PATH:$HOME/.composer/vendor/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/anaconda3/bin:$HOME/.yarn/bin:$GOPATH/bin"
 
 export CARGO_HOME="$HOME/.cargo"
 
@@ -16,9 +18,10 @@ if [[ $XDG_SESSION_TYPE = wayland ]]; then
 
   export SDL_VIDEODRIVER=wayland
   export QT_WAYLAND_FORCE_DPI=physical
-  export QT_QPA_PLATFORM=wayland-egl
+  export QT_QPA_PLATFORM=wayland
   export GDK_BACKEND=wayland
   export CLUTTER_BACKEND=wayland
+  export _JAVA_AWT_WM_NONREPARENTING=1
 fi;
 
 if [[ -f $LOCAL_ENV ]]; then
