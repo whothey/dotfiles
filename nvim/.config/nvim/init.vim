@@ -227,7 +227,8 @@ nnoremap <F10> <Plug>(ale_fix)
 " Buffer fuzzy finder
 nmap <leader>bf :Buffers<CR>
 " File fuzzy finder
-nmap <leader>pf :GFiles --cached --others --exclude-standard<CR>
+nmap <leader>pf :GFiles --exclude-standard --recurse-submodules --cached<CR>
+nmap <leader>pF <leader>pf<C-\><C-n>pA
 nmap <leader>ff :FZF<CR>
 nmap <leader>ft :NERDTreeFind<CR>
 nmap <leader>pg :GGrep<CR>
