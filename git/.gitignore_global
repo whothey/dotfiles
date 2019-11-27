@@ -44,3 +44,4 @@ flycheck_*.el
 TAGS
 tags
 
+.vscode
