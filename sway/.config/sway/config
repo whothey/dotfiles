@@ -62,8 +62,8 @@ bindsym $mod+Shift+Return exec $term --name=termite_float
 bindsym $mod+Shift+q kill
 
 # start menu (a program launcher)
-bindsym $mod+p exec sh -c "$menu"
-bindsym $mod+Shift+p exec $term --name=termite_launcher --config="$HOME/.config/termite/config.launcher" --title="Launcher" -e "$HOME/.scripts/launcher.sh"
+bindsym $mod+Shift+p exec sh -c "$menu"
+bindsym $mod+p exec $term --name=termite_launcher --config="$HOME/.config/termite/config.launcher" --title="Launcher" -e "$HOME/.scripts/launcher.sh"
 
 # Vim-way on change focus
 bindsym $mod+h focus left
