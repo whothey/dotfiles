@@ -6,22 +6,12 @@ filesystem, and sometimes I just want to share these across machines (work/home)
 
 ## My setup 
 
-I'm currently using these files in the ArchLinux Distro, and using some standard apps:
-
-| Function       | Primary             | Secondary      |
-| -------------- | ------------------- | -------------- |
-| Window Manager | sway                | Gnome / i3     |
-| Terminal       | urxvt               | Gnome Terminal |
-| Shell          | zsh + oh-my-zsh     | Bash           |
-| Editor         | NVIM                | VIM            |
-| Web Browser    | Firefox(Vimperator) | Chrome         |
-| File explorer  | ranger              | Nautilus       |
-| PDF Viewer     | zathura             | Evince         |
-| Image Viewer   | imv                 | eog            |
-
-~~I've actualy listed these to show about some dotfiles~~
-I actualy don't know why I've made this table.
+I use these dotfiles in a Linux and Mac environment, so expect some overlap.
 
 ## Bootstrapping
 
-The files in this repository are organized as GNU Stow Packages.
+The files in this repository are organized as GNU Stow Packages, the way I set up
+this repo whenever I have a new instalation is to clone it to my `$HOME` folder,
+so installing the Stow packages is as easy as `stow <package name>`, for example,
+for installing the zsh package it's just `stow zsh`. Otherwise refer to the GNU
+Stow manual for further information.
