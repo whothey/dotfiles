@@ -1,8 +1,0 @@
-[core]
-    excludesfile = ~/.gitignore_global
-
-[user]
-	email = ucraaa@gmail.com
-	name = Gabriel Henrique Rudey
-[credential]
-	helper = cache --timeout=120
