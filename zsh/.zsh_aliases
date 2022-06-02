@@ -1,8 +1,5 @@
-# Emacs aliases
-alias spacemacs="HOME=$HOME/spacemacs emacs"
-alias spaceclient="HOME=$HOME/spacemacs emacsclient -c -a 'emacs'"
-alias emcl="emacsclient -c -a 'emacs'"
-alias emclt="emacsclient -c -t -a 'emacs -nw'"
+# Warning: will override the `edit` editor
+alias edit="$EDITOR"
 
 alias cnvim="nvim --listen /tmp/nvim_${USER}_socket"
 
