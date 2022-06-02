@@ -1,24 +1,13 @@
-ANTIGEN_SRC=/usr/share/zsh/share/antigen.zsh
+export ZSH="$HOME/.oh-my-zsh"
 
-if [[ -f $ANTIGEN_SRC ]]; then
-    source $ANTIGEN_SRC
+ZSH_THEME="lambda-mod"
 
-    antigen use oh-my-zsh
+plugins=(git)
 
-    antigen bundle git
-    antigen bundle command-not-found
-    antigen bundle zsh-users/zsh-syntax-highlighting
-    antigen bundle zsh-users/zsh-autosuggestions
+source $ZSH/oh-my-zsh.sh
 
-    antigen theme halfo/lambda-mod-zsh-theme
-
-    antigen apply
-fi;
-
-# You may need to manually set your language environment
 export LANG=en_GB.UTF-8
 
-# Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
 else
