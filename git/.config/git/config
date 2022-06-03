@@ -13,3 +13,5 @@
 	recommit = commit --amend --no-edit
 	rebranch = rebase -i origin/master
 	uncommit = reset --soft HEAD~
+[init]
+	defaultBranch = main
