@@ -1,24 +1,9 @@
-export ZSH="$HOME/.oh-my-zsh"
+export OH_MY_ZSH_CONFIG="$HOME/.oh-my-zshrc"
 
-ZSH_THEME="lambda-mod"
-
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-export LANG=en_GB.UTF-8
-
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+# If this file exists, the oh-my-zsh stow package was installed
+if [[ -f $OH_MY_ZSH_CONFIG ]]; then
+  . "$OH_MY_ZSH_CONFIG"
+fi;
 
 # Providing all aliases names to stdout, in order to use with j4-dmenu-desktop
 function get-aliases-names() {
