@@ -1,0 +1,9 @@
+[submodule "oh-my-zsh/.oh-my-zsh-custom/plugins/zsh-autosuggestions"]
+	path = oh-my-zsh/.oh-my-zsh-custom/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "oh-my-zsh/.oh-my-zsh-custom/plugins/zsh-syntax-highlighting"]
+	path = oh-my-zsh/.oh-my-zsh-custom/plugins/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule "oh-my-zsh/.oh-my-zsh-custom/themes/lambda-mod-zsh-theme"]
+	path = oh-my-zsh/.oh-my-zsh-custom/themes/lambda-mod-zsh-theme
+	url = git@github.com:halfo/lambda-mod-zsh-theme.git
