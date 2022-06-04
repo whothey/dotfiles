@@ -8,6 +8,7 @@ plugins=(
   zsh-autosuggestions
   command-not-found
   zsh-syntax-highlighting
+  podman
 )
 
 source $ZSH/oh-my-zsh.sh
