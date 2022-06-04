@@ -1,7 +1,7 @@
 # Environment Setup
 LOCAL_ENV="$HOME/.zshenv.local"
 
-export GOPATH=`go env GOPATH`
+export GOPATH="$HOME/go"
 export CARGO_HOME="$HOME/.cargo"
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
