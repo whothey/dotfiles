@@ -10,6 +10,7 @@ local plugins = {
   "nvim-treesitter/nvim-treesitter-context";
   "kylechui/nvim-surround";
   {'nvim-telescope/telescope.nvim', tag = '0.1.2', dependencies = { 'nvim-lua/plenary.nvim' } };
+  "mfussenegger/nvim-dap"
 }
 
 return plugins
