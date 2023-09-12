@@ -17,3 +17,7 @@ function get-aliases-names() {
 
 # Include all aliases
 . ~/.zsh_aliases
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
