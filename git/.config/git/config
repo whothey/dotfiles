@@ -22,4 +22,4 @@
 # running this git instance. For example, specific git configs for a company
 # laptop or personal preferences
 [include]
-	path = './config-local'
+	path = "~/.config/git/config-local"
