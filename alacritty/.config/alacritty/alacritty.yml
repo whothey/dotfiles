@@ -1,0 +1,11 @@
+font:
+  size: 16.0
+
+  normal:
+    family: JetBrains Mono, Menlo, Monaco, Courier New, monospace
+    style: Regular
+
+  offset:
+    y: 8
+  glyph_offset:
+    y: 4
