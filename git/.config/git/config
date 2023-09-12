@@ -15,3 +15,5 @@
 	uncommit = reset --soft HEAD~
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true
