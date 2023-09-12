@@ -6,6 +6,7 @@ alias cnvim="nvim --listen /tmp/nvim_${USER}_socket"
 alias ssh="TERM=rxvt ssh"
 
 alias dpose="docker-compose"
+alias ppose="podman-compose"
 
 # Other aliases
 alias vbox_enable="please rcvboxdrv setup"
