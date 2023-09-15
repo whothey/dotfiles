@@ -1,5 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
+export OMZ_LOCAL="$HOME/.oh-my-zshrc.local"
 
 ZSH_THEME="lambda-mod-zsh-theme/lambda-mod"
 
@@ -11,4 +12,9 @@ plugins=(
   podman
 )
 
+if [[ -f "$OMZ_LOCAL" ]]; then
+  source "$OMZ_LOCAL";
+fi;
+
 source $ZSH/oh-my-zsh.sh
+
