@@ -9,3 +9,6 @@ font:
     y: 8
   glyph_offset:
     y: 4
+
+env:
+  AUTO_START_TMUX: "true"
