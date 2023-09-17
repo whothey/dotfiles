@@ -9,8 +9,12 @@ local plugins = {
   {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufRead", lazy = false};
   "nvim-treesitter/nvim-treesitter-context";
   "nvim-treesitter/nvim-treesitter-textobjects";
-  "kylechui/nvim-surround";
-  "windwp/nvim-autopairs";
+  {"kylechui/nvim-surround", event = "VeryLazy", config = function()
+    require('nvim-surround').setup({});
+  end};
+  {"windwp/nvim-autopairs", event = "InsertEnter", config = function()
+    require('nvim-autopairs').setup({});
+  end};
   {'nvim-telescope/telescope.nvim', tag = '0.1.2', dependencies = { 'nvim-lua/plenary.nvim' } };
   "mfussenegger/nvim-dap";
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 };
