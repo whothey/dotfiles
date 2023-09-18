@@ -10,9 +10,12 @@ I use these dotfiles in a Linux and Mac environment, so expect some overlap.
 
 ## Bootstrapping
 
-The files in this repository are organized as GNU Stow Packages, the way I set up
-this repo whenever I have a new instalation is to clone it to my `$HOME` folder,
-so installing the Stow packages is as easy as `stow <package name>`, for example,
-for installing the zsh package it's just `stow zsh`. Otherwise refer to the GNU
-Stow manual for further information, but mostly `stow -t "$HOME" <package>`
-should do it.
+The folders in this repository are organized as GNU Stow Packages and installing
+packages is as easy as `stow <package name>`, for example, to install the `zsh`
+package it is just a `stow zsh` away if this repo was cloned from you $HOME
+folder, otherwise `stow -t "$HOME" <package>` should do it.
+
+Also, there are some packages like `oh-my-zsh`, `nvim` and `tmux` that require
+submodules to be updated, so `git submodules update --init` should run to enable
+all features of all packages.
+
