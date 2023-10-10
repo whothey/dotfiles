@@ -1,14 +1,12 @@
 local plugins = {
   "folke/lazy.nvim";
-  {
-    "projekt0n/github-nvim-theme",
-    config = function()
-      vim.cmd('colorscheme github_light')
-    end
-  };
   {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufRead", lazy = false};
-  "nvim-treesitter/nvim-treesitter-context";
+  {"nvim-treesitter/nvim-treesitter-context", lazy = false};
   "nvim-treesitter/nvim-treesitter-textobjects";
+  {"numToStr/Comment.nvim", lazy = false, config = function() 
+    require("Comment").setup()
+  end};
+  {"roy2220/easyjump.tmux", lazy = false};
   {"kylechui/nvim-surround", event = "VeryLazy", config = function()
     require('nvim-surround').setup({});
   end};
@@ -38,6 +36,7 @@ local plugins = {
         -- Snippets
         {'L3MON4D3/LuaSnip'},
         {'rafamadriz/friendly-snippets'},
+        {"JoosepAlviste/nvim-ts-context-commentstring"}
     }
   }
 }

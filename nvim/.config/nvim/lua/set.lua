@@ -17,4 +17,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = "+1,+21"
 
--- vim.cmd [[colorscheme dracula]]
+vim.cmd("highlight ColorColumn ctermbg=8 guibg=lightgrey")
+
