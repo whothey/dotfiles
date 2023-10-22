@@ -20,10 +20,17 @@ local plugins = {
 
   {'nvim-telescope/telescope.nvim', tag = '0.1.2', dependencies = { 'nvim-lua/plenary.nvim' } };
 
-  "williamboman/mason.nvim";
+  {"williamboman/mason.nvim", lazy = false, config = function()
+    require('mason').setup()
+  end};
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
-  "mfussenegger/nvim-dap";
+  {"mfussenegger/nvim-dap", lazy = false};
+  "jay-babu/mason-nvim-dap.nvim",
+  {"rcarriga/nvim-dap-ui", config = function()
+    require('dapui').setup({})
+  end};
+
   {
     'hrsh7th/nvim-cmp';
     dependencies = {
