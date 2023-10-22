@@ -6,17 +6,25 @@ local lspconfig = require('lspconfig');
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body);
+    end
+  };
+
   mapping = cmp.mapping.preset.insert({
     ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ['<S-Tab>'] = nil,
+    ['<C-Space>'] = cmp.mapping.complete(),
   });
 
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
     { name = 'path' },
+    { name = 'luasnip' },
   }, {
     { name = 'buffer' },
   });
@@ -24,7 +32,7 @@ cmp.setup({
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
-  callback = function(event)
+  callback = function()
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
