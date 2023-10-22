@@ -5,7 +5,7 @@ local plugins = {
   {"nvim-treesitter/nvim-treesitter-context", lazy = false};
   "nvim-treesitter/nvim-treesitter-textobjects";
 
-  {"numToStr/Comment.nvim", lazy = false, config = function() 
+  {"numToStr/Comment.nvim", lazy = false, config = function()
     require("Comment").setup()
   end};
 
