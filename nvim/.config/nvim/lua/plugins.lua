@@ -18,7 +18,8 @@ local plugins = {
     require('nvim-autopairs').setup({});
   end};
 
-  {'nvim-telescope/telescope.nvim', tag = '0.1.2', dependencies = { 'nvim-lua/plenary.nvim' } };
+  {'nvim-telescope/telescope.nvim', tag = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } };
+  {'nvim-telescope/telescope-dap.nvim', dependencies = { 'mfussenegger/nvim-dap' } };
 
   {"williamboman/mason.nvim", lazy = false, config = function()
     require('mason').setup()
@@ -30,6 +31,13 @@ local plugins = {
   {"rcarriga/nvim-dap-ui", config = function()
     require('dapui').setup({})
   end};
+
+  -- Themes
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 };
+
+  { "lewis6991/gitsigns.nvim" };
+
+  { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } };
 
   {
     'hrsh7th/nvim-cmp';
