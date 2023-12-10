@@ -24,6 +24,7 @@ local js_map_configs = {
         name = "Node: Launch file",
         program = "${file}",
         cwd = "${workspaceFolder}",
+        console = "integratedTerminal",
       },
       {
         type = "pwa-node",
@@ -44,7 +45,6 @@ local js_map_configs = {
         rootPath = "${workspaceFolder}",
         cwd = "${workspaceFolder}",
         console = "integratedTerminal",
-        internalConsoleOptions = "neverOpen",
       }
     },
     filetypes = { 'javascript', 'typescript' },
@@ -70,6 +70,9 @@ masondap.setup({
     end;
 
     js = function(config)
+      dap.defaults['pwa-node'].focus_terminal = true;
+      dap.defaults['pwa-node'].terminal_win_cmd = 'belowright new'
+
       local base_config = copy_table(config);
       local js_adapter = {
         type = "server",
