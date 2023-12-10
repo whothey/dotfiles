@@ -5,7 +5,7 @@ font:
   size: 16.0
 
   normal:
-    family: JetBrains Mono, Menlo, Monaco, Courier New, monospace
+    family: JetBrainsMono Nerd Font
     style: Regular
 
   offset:
@@ -14,4 +14,5 @@ font:
     y: 4
 
 env:
-  AUTO_START_TMUX: "true"
+  # AUTO_START_TMUX: "true"
+  TERM: alacritty
