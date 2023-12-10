@@ -13,3 +13,6 @@
 [submodule "alacritty/.config/alacritty/themes/catpuccin"]
 	path = alacritty/.config/alacritty/themes/catpuccin
 	url = https://github.com/catppuccin/alacritty.git
+[submodule "foot/.config/foot/themes/catpuccin"]
+	path = foot/.config/foot/themes/catpuccin
+	url = https://github.com/catppuccin/foot.git
