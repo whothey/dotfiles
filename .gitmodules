@@ -10,3 +10,6 @@
 [submodule "tmux/.tmux/plugins/tpm"]
 	path = tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "alacritty/.config/alacritty/themes/catpuccin"]
+	path = alacritty/.config/alacritty/themes/catpuccin
+	url = https://github.com/catppuccin/alacritty.git
