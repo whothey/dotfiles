@@ -3,7 +3,7 @@ local plugins = {
 
   {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufRead", lazy = false};
   {"nvim-treesitter/nvim-treesitter-context", lazy = false};
-  "nvim-treesitter/nvim-treesitter-textobjects";
+  {"nvim-treesitter/nvim-treesitter-textobjects", lazy = false};
 
   {"numToStr/Comment.nvim", lazy = false, config = function()
     require("Comment").setup()
@@ -47,6 +47,7 @@ local plugins = {
       {'saadparwaiz1/cmp_luasnip'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'hrsh7th/cmp-nvim-lua'},
+      {'ray-x/cmp-treesitter'},
       {
         "L3MON4D3/LuaSnip",
         version = "v2.*",

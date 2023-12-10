@@ -17,6 +17,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.textwidth = 100
 vim.opt.colorcolumn = "+1"
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 vim.cmd("highlight ColorColumn ctermbg=8 guibg=lightgrey")
 
 vim.api.nvim_create_autocmd({'VimEnter', 'VimLeave'}, {
