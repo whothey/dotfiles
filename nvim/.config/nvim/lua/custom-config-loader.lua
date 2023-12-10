@@ -1,5 +1,19 @@
 M = {}
 
+local custom_loaded_config_names = {};
+
+local function clearLoadedConfigs()
+  local dap = require('dap');
+
+  for iconfig, config in ipairs(dap.configurations[type]) do
+    for _, addedName in ipairs(custom_loaded_config_names) do
+      if (config.name == addedName) then
+        table.remove(dap.configurations[type], iconfig);
+      end
+    end
+  end
+end
+
 local function reload_config()
   local sep = "/";
   local current_dir = vim.fn.getcwd();
@@ -21,7 +35,6 @@ local function reload_config()
   end
 end
 
-
 -- Loads custom configs similar to .vscode folder
 vim.api.nvim_create_autocmd({'DirChanged', 'VimEnter'}, {
   desc = 'Custom config loader for directories',
@@ -29,6 +42,10 @@ vim.api.nvim_create_autocmd({'DirChanged', 'VimEnter'}, {
 });
 
 vim.keymap.set("n", "<Leader>cr", reload_config)
+vim.keymap.set("n", "<Leader>cR", function()
+  clearLoadedConfigs();
+  reload_config();
+end)
 
 M.dap_add_config = function(type, config)
   local dap = require('dap');
@@ -39,6 +56,7 @@ M.dap_add_config = function(type, config)
     end
   end
 
+  table.insert(custom_loaded_config_names, config.name)
   table.insert(dap.configurations[type], config)
 end
 

@@ -14,8 +14,15 @@ vim.opt.undofile = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.textwidth = 80
-vim.opt.colorcolumn = "+1,+21"
+vim.opt.textwidth = 100
+vim.opt.colorcolumn = "+1"
 
 vim.cmd("highlight ColorColumn ctermbg=8 guibg=lightgrey")
+
+vim.api.nvim_create_autocmd({'VimEnter', 'VimLeave'}, {
+  pattern = '*',
+  callback = function()
+    vim.cmd('silent !tmux set status');
+  end,
+})
 
