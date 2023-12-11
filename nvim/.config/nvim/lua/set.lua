@@ -17,6 +17,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.textwidth = 100
 vim.opt.colorcolumn = "+1"
 
+vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
