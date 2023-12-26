@@ -38,6 +38,7 @@ local plugins = {
   { "lewis6991/gitsigns.nvim" };
 
   { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } };
+  { 'kkoomen/vim-doge', run = ':call doge#install()' };
 
   {
     'hrsh7th/nvim-cmp';
