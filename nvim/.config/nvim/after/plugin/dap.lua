@@ -1,20 +1,6 @@
 local dap = require('dap');
 local masondap = require('mason-nvim-dap');
 
-local function copy_table(t)
-  local new_table = {};
-
-  for k, v in pairs(t) do
-    if (type(v) == "table") then
-      new_table[k] = copy_table(v);
-    else
-      new_table[k] = v;
-    end
-  end
-
-  return new_table;
-end
-
 local js_map_configs = {
   ["pwa-node"] = {
     configurations = {
@@ -72,8 +58,8 @@ masondap.setup({
     js = function(config)
       dap.defaults['pwa-node'].focus_terminal = true;
       dap.defaults['pwa-node'].terminal_win_cmd = 'belowright new'
+      local base_config = vim.deepcopy(config);
 
-      local base_config = copy_table(config);
       local js_adapter = {
         type = "server",
         host = "localhost",
@@ -85,7 +71,7 @@ masondap.setup({
       }
 
       for name, adapter_setup in pairs(js_map_configs) do
-        local adapter_config = copy_table(base_config);
+        local adapter_config = vim.deepcopy(base_config);
 
         adapter_config.name = name
         adapter_config.adapters = js_adapter;
