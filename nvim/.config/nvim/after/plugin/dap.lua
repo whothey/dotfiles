@@ -49,6 +49,9 @@ local js_map_configs = {
   }
 }
 
+dap.defaults.fallback.switchbuf = 'usetab';
+dap.defaults.fallback.terminal_win_cmd = 'belowright new'
+
 masondap.setup({
   ensure_installed = { 'js' };
   handlers = {
@@ -57,8 +60,6 @@ masondap.setup({
     end;
 
     js = function(config)
-      dap.defaults['pwa-node'].focus_terminal = true;
-      dap.defaults['pwa-node'].terminal_win_cmd = 'belowright new'
       local base_config = vim.deepcopy(config);
 
       local js_adapter = {
