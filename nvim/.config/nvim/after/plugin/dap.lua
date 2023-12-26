@@ -22,11 +22,12 @@ local js_map_configs = {
       {
         type = "pwa-node",
         request = "launch",
-        name = "Node: Debug Mocha Tests",
+        name = "Node: Debug Mocha Test",
         -- trace = true, -- include debugger info
+        program = "${file}",
         runtimeExecutable = "node",
         runtimeArgs = {
-          "./node_modules/mocha/bin/mocha.js",
+          "./node_modules/.bin/mocha",
         },
         rootPath = "${workspaceFolder}",
         cwd = "${workspaceFolder}",
