@@ -55,6 +55,7 @@ masonlsp.setup({
     'rust_analyzer',
     'tsserver',
     'eslint',
+    'gopls',
   }
 });
 
