@@ -10,7 +10,12 @@ vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string()
 end)
 vim.keymap.set('n', '<leader>pg', function()
-  builtin.grep_string({ search = vim.fn.input("Grep > ") })
+  builtin.grep_string({
+    search = vim.fn.input({
+      prompt = "Grep > ";
+      default = vim.fn.expand('<cword>');
+    });
+  });
 end)
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>tp', builtin.pickers, {})
