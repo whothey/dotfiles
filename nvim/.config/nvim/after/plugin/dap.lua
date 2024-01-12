@@ -28,6 +28,9 @@ local js_map_configs = {
         runtimeExecutable = "node",
         runtimeArgs = {
           "./node_modules/.bin/mocha",
+          "-t",
+          "0",
+          "--exit"
         },
         rootPath = "${workspaceFolder}",
         cwd = "${workspaceFolder}",
