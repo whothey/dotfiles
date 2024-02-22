@@ -2,14 +2,15 @@ local builtin = require('telescope.builtin')
 
 require('telescope').load_extension('dap')
 
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>pf', builtin.git_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>ps', function()
-  builtin.grep_string()
-end)
-vim.keymap.set('n', '<leader>pg', function()
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find open buffers" })
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files of current dir" })
+vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "Find nvim keymaps" })
+vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = "Find nvim registers" })
+vim.keymap.set('n', '<leader>ft', builtin.treesitter, { desc = "Find treesitter symbols" })
+vim.keymap.set('n', '<leader>fgf', builtin.git_files, { desc = "Find git files" })
+vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = "Find git files" })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fg', function()
   builtin.grep_string({
     search = vim.fn.input({
       prompt = "Grep > ";
