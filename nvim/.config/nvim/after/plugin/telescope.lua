@@ -17,12 +17,11 @@ vim.keymap.set('n', '<leader>pg', function()
     });
   });
 end)
-vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>tp', builtin.pickers, {})
 
 -- LSP
-vim.keymap.set('n', '<leader>lss', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>pS', builtin.lsp_workspace_symbols, {})
-vim.keymap.set('n', '<leader>lsr', builtin.lsp_references, {})
-vim.keymap.set('n', '<leader>lsi', builtin.lsp_implementations, {})
-vim.keymap.set('n', '<leader>lsd', builtin.lsp_definitions, {})
+vim.keymap.set('n', '<leader>lss', builtin.lsp_document_symbols, { desc = "Lookup LSP file symbols" })
+vim.keymap.set('n', '<leader>lsS', builtin.lsp_workspace_symbols, { desc = "Lookup LSP workspace symbols" })
+vim.keymap.set('n', '<leader>lsr', builtin.lsp_references, { desc = "Lookup LSP references to current symbol under cursor" })
+vim.keymap.set('n', '<leader>lsi', builtin.lsp_implementations, { desc = "Lookup LSP implementations of current symbol under cursor" })
+vim.keymap.set('n', '<leader>lsd', builtin.lsp_definitions, { desc = "Lookup LSP definitions of current symbol under cursor" })
+
