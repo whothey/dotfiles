@@ -17,6 +17,8 @@
 	defaultBranch = main
 [pull]
 	rebase = true
+[branch]
+	sort = -committerdate
 
 # config-local is an ignored file to be defined by the env/machine that is
 # running this git instance. For example, specific git configs for a company
