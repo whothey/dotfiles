@@ -1,5 +1,6 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 2
@@ -23,10 +24,10 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.cmd("highlight ColorColumn ctermbg=8 guibg=lightgrey")
 
-vim.api.nvim_create_autocmd({'VimEnter', 'VimLeave'}, {
-  pattern = '*',
-  callback = function()
-    vim.cmd('silent !tmux set status');
-  end,
-})
+-- vim.api.nvim_create_autocmd({'VimEnter', 'VimLeave'}, {
+--   pattern = '*',
+--   callback = function()
+--     vim.cmd('silent !tmux set status');
+--   end,
+-- })
 
