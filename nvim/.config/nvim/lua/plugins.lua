@@ -28,9 +28,13 @@ local plugins = {
   "neovim/nvim-lspconfig",
   {"mfussenegger/nvim-dap", lazy = false};
   "jay-babu/mason-nvim-dap.nvim",
-  {"rcarriga/nvim-dap-ui", config = function()
-    require('dapui').setup({})
-  end};
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require('dapui').setup({})
+    end,
+    dependencies = { "nvim-neotest/nvim-nio" }
+  };
 
   -- Themes
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 };
