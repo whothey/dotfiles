@@ -119,8 +119,13 @@ vim.keymap.set('n', '<Leader>ds', function()
 
   widgets.centered_float(widgets.scopes)
 end)
+vim.keymap.set('n', '<Leader>dS', function()
+  local widgets = require('dap.ui.widgets')
 
-vim.keymap.set('n', '<Leader>dut', function() 
+  widgets.centered_float(widgets.sessions)
+end)
+
+vim.keymap.set('n', '<Leader>dut', function()
   require('dapui').toggle()
 end)
 
