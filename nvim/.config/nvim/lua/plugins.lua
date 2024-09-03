@@ -1,7 +1,7 @@
 local plugins = {
   "folke/lazy.nvim";
 
-  {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufRead", lazy = false};
+  {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufEnter", lazy = false};
   {"nvim-treesitter/nvim-treesitter-context", lazy = false};
   {"nvim-treesitter/nvim-treesitter-textobjects", lazy = false};
 
@@ -14,12 +14,32 @@ local plugins = {
   {"kylechui/nvim-surround", event = "VeryLazy", config = function()
     require('nvim-surround').setup({});
   end};
-  {"windwp/nvim-autopairs", event = "InsertEnter", config = function()
-    require('nvim-autopairs').setup({});
-  end};
+  -- {"windwp/nvim-autopairs", event = "InsertEnter", config = function()
+  --   require('nvim-autopairs').setup({});
+  -- end};
 
   {'nvim-telescope/telescope.nvim', tag = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } };
   {'nvim-telescope/telescope-dap.nvim', dependencies = { 'mfussenegger/nvim-dap' } };
+
+  {
+    'cameron-wags/rainbow_csv.nvim',
+    config = true,
+    ft = {
+        'csv',
+        'tsv',
+        'csv_semicolon',
+        'csv_whitespace',
+        'csv_pipe',
+        'rfc_csv',
+        'rfc_semicolon'
+    },
+    cmd = {
+        'RainbowDelim',
+        'RainbowDelimSimple',
+        'RainbowDelimQuoted',
+        'RainbowMultiDelim'
+    }
+  };
 
   {"williamboman/mason.nvim", lazy = false, config = function()
     require('mason').setup()
