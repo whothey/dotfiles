@@ -10,8 +10,9 @@
 	helper = cache --timeout=120
 
 [alias]
-	recommit = commit --amend --no-edit
 	rebranch = rebase -i origin/master
+	recommit = commit --amend --no-edit
+	repush = push --force-with-lease origin HEAD
 	uncommit = reset --soft HEAD~
 [init]
 	defaultBranch = main
