@@ -20,15 +20,35 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
   });
 
+  sorting = {
+    comparators = {
+      cmp.config.compare.score,
+      cmp.config.compare.kind,
+      cmp.config.compare.offset,
+      -- cmp.config.compare.exact,
+      -- cmp.config.compare.recently_used,
+      -- cmp.config.compare.sort_text,
+    }
+  },
+
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
+    { name = 'treesitter' },
     { name = 'path' },
     { name = 'luasnip' },
-    { name = 'treesitter' },
-  }, {
-    { name = 'buffer' },
+    { name = 'buffer', keywork_length = 3 },
   });
+
+formatting = {
+    format = function(entry, vim_item)
+      if entry.source.name == 'nvim_lsp' then
+        vim_item.dup = 0
+      end
+
+      return vim_item
+    end
+  },
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
