@@ -80,6 +80,16 @@ local plugins = {
       }
     }
   };
+
+  {
+    "gbprod/substitute.nvim";
+    opts = {
+      highlight_substituted_text = {
+        enabled = true,
+        timer = 500,
+      };
+    };
+  };
 }
 
 return plugins
