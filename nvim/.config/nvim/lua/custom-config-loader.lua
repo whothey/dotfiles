@@ -5,10 +5,12 @@ local custom_loaded_config_names = {};
 local function clearLoadedConfigs()
   local dap = require('dap');
 
-  for iconfig, config in ipairs(dap.configurations[type]) do
-    for _, addedName in ipairs(custom_loaded_config_names) do
-      if (config.name == addedName) then
-        table.remove(dap.configurations[type], iconfig);
+  for _, configs in pairs(dap.configurations) do
+    for _, addedName in pairs(custom_loaded_config_names) do
+      for iconfig, config in pairs(configs) do
+        if (config.name == addedName) then
+          table.remove(configs, iconfig);
+        end
       end
     end
   end
@@ -41,11 +43,11 @@ vim.api.nvim_create_autocmd({'DirChanged', 'VimEnter'}, {
   callback = reload_config,
 });
 
-vim.keymap.set("n", "<Leader>cr", reload_config)
+vim.keymap.set("n", "<Leader>cr", reload_config, { desc = "Reload custom configs" })
 vim.keymap.set("n", "<Leader>cR", function()
   clearLoadedConfigs();
   reload_config();
-end)
+end, { desc = "Clear and reload custom configs" })
 
 M.dap_add_config = function(type, config)
   local dap = require('dap');

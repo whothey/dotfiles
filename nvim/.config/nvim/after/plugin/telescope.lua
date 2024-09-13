@@ -2,14 +2,16 @@ local builtin = require('telescope.builtin')
 
 require('telescope').load_extension('dap')
 
+vim.keymap.set('n', 'D-k', builtin.commands, { desc = "All commands" })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find open buffers" })
+vim.keymap.set('n', '<leader>fz', builtin.buffers, { desc = "Live grep" })
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files of current dir" })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "Find nvim keymaps" })
 vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = "Find nvim registers" })
 vim.keymap.set('n', '<leader>ft', builtin.treesitter, { desc = "Find treesitter symbols" })
 vim.keymap.set('n', '<leader>fgf', builtin.git_files, { desc = "Find git files" })
 vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = "Find git files" })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Show nvim help tags" })
 vim.keymap.set('n', '<leader>fg', function()
   builtin.grep_string({
     search = vim.fn.input({
@@ -17,7 +19,7 @@ vim.keymap.set('n', '<leader>fg', function()
       default = vim.fn.expand('<cword>');
     });
   });
-end)
+end, { desc = "Grep a string on project" })
 
 -- LSP
 vim.keymap.set('n', '<leader>lss', builtin.lsp_document_symbols, { desc = "Lookup LSP file symbols" })
