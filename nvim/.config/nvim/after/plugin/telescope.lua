@@ -4,7 +4,7 @@ require('telescope').load_extension('dap')
 
 vim.keymap.set('n', 'D-k', builtin.commands, { desc = "All commands" })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find open buffers" })
-vim.keymap.set('n', '<leader>fz', builtin.buffers, { desc = "Live grep" })
+vim.keymap.set('n', '<leader>fz', builtin.live_grep, { desc = "Live grep" })
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files of current dir" })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "Find nvim keymaps" })
 vim.keymap.set('n', '<leader>fr', builtin.registers, { desc = "Find nvim registers" })
