@@ -5,16 +5,6 @@ if [[ -f $OH_MY_ZSH_CONFIG ]]; then
   . "$OH_MY_ZSH_CONFIG"
 fi;
 
-# Providing all aliases names to stdout, in order to use with j4-dmenu-desktop
-function get-aliases-names() {
-    while IFS= read -r line
-    do
-        if [[ $line =~ 'alias[[:space:]]+(.*)\=' ]]; then
-            echo $match[1]
-        fi
-    done < "$HOME/.zsh_aliases"
-}
-
 # Include all aliases
 . ~/.zsh_aliases
 
