@@ -24,9 +24,13 @@ local function reload_config()
   while #paths ~= 0 do
     local current_base = sep .. vim.fn.join(paths, sep)
     local current_test = current_base .. "/.whothey";
+    local current_init = current_test .. "/init.lua";
 
-    if vim.fn.isdirectory(current_test) == 1 then
-      local current_init = current_test .. "/init.lua";
+    if vim.fn.isdirectory(current_test) == 1 and vim.fn.filereadable(current_init) then
+      if not vim.tbl_contains(vim.opt.runtimepath, current_test) then
+        -- vim.notify(current_init .. " was added to runtimepath")
+        table.insert(vim.opt.runtimepath, current_test)
+      end
 
       if not pcall(dofile, current_init) then
         vim.notify("Failed to load custom script " .. current_init)
