@@ -1,5 +1,6 @@
 # Warning: will override the `edit` editor
 alias edit="$EDITOR"
+alias gdc="gd --cached"
 
 alias cnvim="nvim --listen /tmp/nvim_${USER}_socket"
 
