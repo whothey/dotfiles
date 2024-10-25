@@ -21,13 +21,9 @@ vim.opt.colorcolumn = "+1"
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.indentexpr = "nvim_treesitter#indent()"
 
-vim.cmd("highlight ColorColumn ctermbg=8 guibg=lightgrey")
-
--- vim.api.nvim_create_autocmd({'VimEnter', 'VimLeave'}, {
---   pattern = '*',
---   callback = function()
---     vim.cmd('silent !tmux set status');
---   end,
--- })
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = false
 
