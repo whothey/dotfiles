@@ -1,5 +1,9 @@
 vim.g.mapleader = " "
-vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-h>", "<C-W>h")
+vim.keymap.set("n", "<C-j>", "<C-W>j")
+vim.keymap.set("n", "<C-k>", "<C-W>k")
+vim.keymap.set("n", "<C-l>", "<C-W>l")
 vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Jump to next warning/error" } )
 vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Jump to previous warning/error" })
 vim.keymap.set("n", "]t", function() vim.cmd('tabnext') end, { desc = "Next tab" })
