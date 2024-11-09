@@ -20,6 +20,12 @@ local plugins = {
   {'nvim-telescope/telescope-dap.nvim', dependencies = { 'mfussenegger/nvim-dap' } };
 
   {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  };
+
+  {
     'cameron-wags/rainbow_csv.nvim',
     config = true,
     ft = {
