@@ -46,6 +46,24 @@ end)
 config.leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
+  -- Delete a word
+  {
+    key = 'Backspace',
+    mods = 'CTRL',
+    action = wezterm.action.SendKey { mods = 'CTRL', key = 'w' },
+  },
+  -- Move word left
+  {
+    key = 'LeftArrow',
+    mods = 'OPT',
+    action = wezterm.action.SendString '\x1bb'
+  },
+  -- Move word right
+  {
+    key = 'RightArrow',
+    mods = 'OPT',
+    action = wezterm.action.SendString '\x1bf'
+  },
   {
     key = '|',
     mods = 'LEADER',
@@ -76,6 +94,11 @@ config.keys = {
     key = 'k',
     mods = 'LEADER|CTRL',
     action = wezterm.action.SendKey { key = 'k', mods = 'CTRL' },
+  },
+  {
+    key = 'e',
+    mods = 'CMD',
+    action = wezterm.action.SendKey { key = 'e', mods = 'CMD' },
   },
   {
     key = 'h',
