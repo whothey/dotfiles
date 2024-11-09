@@ -9,8 +9,6 @@ local plugins = {
     require("Comment").setup()
   end};
 
-  {"roy2220/easyjump.tmux", lazy = false};
-
   {"kylechui/nvim-surround", event = "VeryLazy", config = function()
     require('nvim-surround').setup({});
   end};
