@@ -26,4 +26,5 @@ vim.opt.indentexpr = "nvim_treesitter#indent()"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = false
+vim.opt.exrc = true
 
