@@ -70,7 +70,14 @@ local plugins = {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = require('plugins.lualine')
   };
-  { 'kkoomen/vim-doge', run = ':call doge#install()' };
+
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  };
 
   {
     'hrsh7th/nvim-cmp';
