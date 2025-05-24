@@ -28,3 +28,4 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.exrc = true
 
+vim.o.guifont = "JetBrainsMono Nerd Font:h16"
