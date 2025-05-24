@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "<leader>lca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>lrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>lrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("n", "<leader>lsf", function() vim.lsp.buf.formatting() end, opts)
+    vim.keymap.set("n", "<leader>lsf", function() vim.lsp.buf.format() end, opts)
     vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
   end
@@ -91,7 +91,7 @@ masonlsp.setup({
   ensure_installed = {
     'lua_ls',
     'rust_analyzer',
-    'tsserver',
+    'ts_ls',
     'eslint',
     'gopls',
   }
