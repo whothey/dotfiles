@@ -65,7 +65,11 @@ local plugins = {
 
   { "lewis6991/gitsigns.nvim" };
 
-  { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } };
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = require('plugins.lualine')
+  };
   { 'kkoomen/vim-doge', run = ':call doge#install()' };
 
   {
