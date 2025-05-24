@@ -46,6 +46,7 @@ local js_map_configs = {
         request = "launch",
         name = "Start debugging terminal",
         cwd = "${workspaceFolder}",
+        console = "integratedTerminal",
       }
     },
     filetypes = { 'javascript', 'typescript' },
@@ -53,7 +54,7 @@ local js_map_configs = {
 }
 
 dap.defaults.fallback.switchbuf = 'useopen,usetab,newtab';
-dap.defaults.fallback.terminal_win_cmd = 'belowright new'
+dap.defaults.fallback.terminal_win_cmd = 'belowright vertical new'
 
 masondap.setup({
   ensure_installed = { 'js' };
@@ -126,7 +127,9 @@ vim.keymap.set('n', '<Leader>dS', function()
 end, { desc = "Debug - Stack sessions" })
 
 vim.keymap.set('n', '<Leader>dut', function()
+  -- dap.defaults.fallback.switchbuf = 'useopen,usetab,newtab';
   require('dapui').toggle()
+  -- require('dapui')
 end, { desc = "Debug - Toggle UI" })
 
 vim.fn.execute('highlight Breakpoint guifg=#ff0000')
@@ -175,3 +178,19 @@ end
 
 vim.keymap.set("n", "]b", function() gotoBreakpoint("next") end, { desc = "Go to next breakpoint" })
 vim.keymap.set("n", "[b", function() gotoBreakpoint("prev") end, { desc = "Go to previous breakpoint" })
+
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+  pattern = "make",
+  callback = function()
+    -- Check if make command was successful (no errors in quickfix list)
+    local qf_list = vim.fn.getqflist()
+    if #qf_list == 0 then
+      -- Restart debug session if one exists
+      if dap.session() then
+        vim.notify("Trying restart debug session after successful make", vim.log.levels.INFO)
+        dap.restart()
+      end
+    end
+  end,
+  desc = "Restart debug session after successful make command"
+})
