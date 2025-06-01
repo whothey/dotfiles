@@ -9,7 +9,6 @@ export PATH="$PATH:$HOME/.bin:$HOME/.yarn/bin"
 optional_paths=("$GOPATH" "$CARGO_HOME")
 
 for pathvar in $optional_paths; do
-  echo "trying $pathvar..."
   if [[ -d "$pathvar" ]]; then
     export PATH="$PATH:$pathvar/bin"
   fi
@@ -18,7 +17,6 @@ done;
 optional_envs=("$LOCAL_ENV")
 
 for envvar in $optional_envs; do
-  echo "trying $envvar..."
   if [[ -f "$envvar" ]]; then
     source "$envvar"
   fi
