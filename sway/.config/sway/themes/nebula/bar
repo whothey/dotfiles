@@ -1,24 +1,27 @@
 # Nebula Theme Bar
 
-bar {
-        font pango:FontAwesome 11, DejaVu Sans Mono 8 
-        status_command i3blocks
-        position top
-        separator_symbol "" # Nebula theme separator
+bar swaybar_command waybar
 
-        colors {
-               # Nebula theme
-               background #0c0d1f
-               focused_background #090531
-               statusline #f5e3ff
-               focused_statusline #fffdff
-               separator #3d3c88
-               focused_separator #aeb0fd
-
-               # Workspace Buttons
-               active_workspace #4c2b46 #4c2b46 #fffdff 
-               focused_workspace #e9723a #e9723a #fffdff
-               inactive_workspace #241c33 #241c33 #fffdff  # alt
-               urgent_workspace #26c83f #26c83f #221f64
-        }
-}
+# bar {
+#         font pango:FontAwesome 11, DejaVu Sans Mono 8 
+#         status_command i3blocks
+#         position top
+# 	# Nebula theme separator
+#         separator_symbol ""
+# 
+#         colors {
+#                # Nebula theme
+#                background #0c0d1f
+#                focused_background #090531
+#                statusline #f5e3ff
+#                focused_statusline #fffdff
+#                separator #3d3c88
+#                focused_separator #aeb0fd
+# 
+#                # Workspace Buttons
+#                active_workspace #4c2b46 #4c2b46 #fffdff 
+#                focused_workspace #e9723a #e9723a #fffdff
+#                inactive_workspace #241c33 #241c33 #fffdff
+#                urgent_workspace #26c83f #26c83f #221f64
+#         }
+# }

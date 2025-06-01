@@ -2,13 +2,14 @@
 # whothey
 
 # Mod Key: Mod4 = WinKey (Super) | Mod1 = AltKey
+# set $mod Control+Shift+Mod1+Mod4
+# set $altMod Control+Shift+Mod4
 set $mod Mod4
 set $altMod Mod1
 set $ctrl Control
-set $term foot
-set $browser chromium
-set $menu rofi -show combi -combi-modi window,drun,run -modi combi
-set $theme transistor
+set $term wezterm-gui
+set $browser google-chrome-stable
+set $theme nebula
 
 # Workspaces
 set $WS1 "1:&#xf120;"
@@ -28,7 +29,7 @@ set $WS0 "10:&#xf121;"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Font Awesome 5 Free Regular 10, xos4 Terminess Powerline 8
+font pango:Font Awesome 6 Free Regular 10, xos4 Terminess Powerline 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -38,11 +39,11 @@ font pango:Font Awesome 5 Free Regular 10, xos4 Terminess Powerline 8
 # font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier Mod4
 
 # Windows to Workspaces
 assign [title="(?i)firefox"] workspace $WS2
-assign [title="(?i)chromium"] workspace $WS2
+assign [title="(?i)google chrome"] workspace $WS2
 assign [title="(?i)zathura"] workspace $WS3
 assign [title="(?i)virtualbox"] workspace $WS8
 assign [title="(?i)weechat" class="(?i)termite"] workspace $WS7
@@ -54,15 +55,15 @@ for_window [app_id="term_float"] floating enable
 for_window [app_id="term_launcher"] floating enable, border none, resize set width 900 px height 400 px
 
 # start a terminal
-bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term --app-id=term_float
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start menu (a program launcher)
-bindsym $mod+Shift+p exec sh -c "$menu"
-bindsym $mod+p exec $term --app-id=term_launcher --title="Launcher" -e "$HOME/.scripts/launcher.sh"
+bindsym $mod+p exec foot --app-id=term_launcher --title="Launcher" -e "$HOME/.scripts/launcher.sh"
+bindsym $mod+Space exec foot --app-id=term_launcher --title="Launcher" -e "$HOME/.scripts/launcher.sh"
 
 # Vim-way on change focus
 bindsym $mod+h focus left
@@ -107,7 +108,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+$altMod+space sticky enable
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -144,6 +145,9 @@ bindsym $mod+Control+Left  move workspace to output left
 bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+Control+Up    move workspace to output up
 bindsym $mod+Control+Down  move workspace to output down
+
+# bindsym Control+Left  workspace prev
+# bindsym Control+Right workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -198,13 +202,11 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessDown exec xbacklight - 10
 bindsym XF86MonBrightnessUp exec xbacklight + 10
 
-# Print
+# Print / Screenshots
 bindsym Print exec grim "$HOME/Pictures/Screenshots/$(date +'%F_%H-%M-%S').png"
-bindsym Alt+Print exec grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +'%F_%H-%M-%S').png"
+bindsym Alt+Print exec grim -g "$(slurp)" - | tee "$HOME/Pictures/Screenshots/$(date +'%F_%H-%M-%S').png" | wl-copy
 
 # Screen lock && autolock
-exec xrdb ~/.Xresources
-exec setxkbmap br
 bindsym $mod+Pause exec "~/.scripts/lockscript.sh"
 exec swayidle -w \
   timeout 300 "~/.scripts/lockscript.sh" \
@@ -212,13 +214,16 @@ exec swayidle -w \
     resume "swaymsg output * dpms on" \
   before-sleep "~/.scripts/lockscript.sh"
 
+exec --no-startup-id dbus-update-activation-environment --all
+exec solaar -w hide
+
 include ./modes/*
 include ./style
 
 # Theme Loader
 include ./themes/$theme/colors
 include ./themes/$theme/bar
-include ./themes/$theme/wallpaper
+# include ./themes/$theme/wallpaper
 
 include ./inputs
 include ./outputs
