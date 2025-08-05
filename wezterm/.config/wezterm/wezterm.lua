@@ -17,6 +17,8 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
+config.max_fps = 240
+config.animation_fps = 60
 
 -- local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
 -- local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
@@ -35,13 +37,48 @@ end)
 
 wezterm.on('format-tab-title', function(tab, tabs, tabconfig, hover, max_width)
   local ok, err = pcall(function ()
-    return tab.active_pane.current_working_dir .. " " .. tab.active_pane.title;
+    return tab.active_pane.title;
   end);
 
   if not ok then
     wezterm.log_error(err)
   end
 end)
+
+local wezterm = require 'wezterm'
+local act = wezterm.action
+
+-- Handle custom escape sequences from nvim
+wezterm.on('user-var-changed', function(window, pane, name, value)
+  wezterm.log_info('var', name, value)
+  if name == 'move-pane' then
+    local direction_map = {
+      h = 'Left',
+      j = 'Down',
+      k = 'Up',
+      l = 'Right',
+    }
+    local direction = direction_map[value]
+    if direction then
+      window:perform_action(act.ActivatePaneDirection(direction), pane)
+    end
+  end
+end)
+
+local function is_vim(pane)
+  local process_name = string.gsub(pane:get_foreground_process_name(), '(.*[/\\])(.*)', '%2')
+  return process_name == 'nvim' or process_name == 'vim'
+end
+
+local function navigate_pane(direction, key)
+  return wezterm.action_callback(function(win, pane)
+    if is_vim(pane) then
+      win:perform_action(act.SendKey { key = key, mods = 'CTRL' }, pane)
+    else
+      win:perform_action(act.ActivatePaneDirection(direction), pane)
+    end
+  end)
+end
 
 config.leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 }
 
@@ -120,6 +157,10 @@ config.keys = {
     mods = 'CTRL|SHIFT',
     action = wezterm.action.ActivatePaneDirection 'Right'
   },
+  { key = 'h', mods = 'CTRL', action = navigate_pane('Left', 'h') },
+  { key = 'j', mods = 'CTRL', action = navigate_pane('Down', 'j') },
+  { key = 'k', mods = 'CTRL', action = navigate_pane('Up', 'k') },
+  { key = 'l', mods = 'CTRL', action = navigate_pane('Right', 'l') },
   {
     key = 'T',
     mods = 'CTRL|SHIFT',
