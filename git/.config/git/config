@@ -14,6 +14,8 @@
 	recommit = commit --amend --no-edit
 	repush = push --force-with-lease origin HEAD
 	uncommit = reset --soft HEAD~
+	no-hooks = config core.hooksPath /dev/null
+	re-hooks = config --unset core.hooksPath
 [init]
 	defaultBranch = main
 [pull]
@@ -26,3 +28,6 @@
 # laptop or personal preferences
 [include]
 	path = "~/.config/git/config-local"
+[push]
+	autoSetupRemote = true
+	default = current
