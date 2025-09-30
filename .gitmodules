@@ -6,7 +6,7 @@
 	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
 [submodule "oh-my-zsh/.oh-my-zsh-custom/themes/lambda-mod-zsh-theme"]
 	path = oh-my-zsh/.oh-my-zsh-custom/themes/lambda-mod-zsh-theme
-	url = git@github.com:halfo/lambda-mod-zsh-theme.git
+	url = git@github.com:whothey/lambda-mod-zsh-theme.git
 [submodule "tmux/.tmux/plugins/tpm"]
 	path = tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
