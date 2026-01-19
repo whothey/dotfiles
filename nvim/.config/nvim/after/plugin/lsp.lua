@@ -1,17 +1,10 @@
 local cmp = require('cmp');
 local mason = require('mason');
 local masonlsp = require('mason-lspconfig');
-local lspconfig = require('lspconfig');
 
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body);
-    end
-  };
-
   mapping = cmp.mapping.preset.insert({
     ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
@@ -36,7 +29,6 @@ cmp.setup({
     { name = 'nvim_lua' },
     { name = 'treesitter' },
     { name = 'path' },
-    { name = 'luasnip' },
     { name = 'buffer', keywork_length = 3 },
   });
 
@@ -96,18 +88,6 @@ masonlsp.setup({
     'gopls',
   }
 });
-
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-masonlsp.setup_handlers({
-  function(server_name)
-    local settings = {
-      capabilities = lsp_capabilities,
-    };
-
-    lspconfig[server_name].setup(settings)
-  end,
-})
 
 vim.diagnostic.config({
     virtual_text = true
