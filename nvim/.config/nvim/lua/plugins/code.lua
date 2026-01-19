@@ -1,5 +1,5 @@
 return {
-  {"numToStr/Comment.nvim", lazy = false, opts = {}};
+  {"numToStr/Comment.nvim", lazy = false, opts = {}},
 
   {
     'hrsh7th/nvim-cmp';
@@ -10,5 +10,15 @@ return {
       {'hrsh7th/cmp-nvim-lua'},
       {'ray-x/cmp-treesitter'},
     }
-  };
+  },
+
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    lazy = false,
+    opts = {},
+  },
 };
