@@ -1,5 +1,6 @@
 require('remap')
 require('set')
+require('abbrev')
 require('plugin-manager')
 require('custom-config-loader')
 
