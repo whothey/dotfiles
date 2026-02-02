@@ -13,6 +13,24 @@ return {
   },
 
   {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "mason-org/mason.nvim",
+    },
+    opts = {
+      ensure_installed = {
+        'lua_ls',
+        'rust_analyzer',
+        'ts_ls',
+        'eslint',
+        -- 'gopls',
+        -- 'golangci_lint_ls',
+      }
+    }
+  },
+
+  {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",

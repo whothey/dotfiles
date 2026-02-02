@@ -1,7 +1,6 @@
 return {
   "folke/lazy.nvim";
-  {"williamboman/mason.nvim", lazy = false};
-  "williamboman/mason-lspconfig.nvim",
+  {"williamboman/mason.nvim", opts = {}, lazy = false};
 
   {
     'cameron-wags/rainbow_csv.nvim',

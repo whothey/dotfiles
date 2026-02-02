@@ -6,8 +6,6 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
-    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ['<S-Tab>'] = nil,
     ['<C-Space>'] = cmp.mapping.complete(),
@@ -32,13 +30,13 @@ cmp.setup({
     { name = 'buffer', keywork_length = 3 },
   });
 
-formatting = {
+  formatting = {
     format = function(entry, vim_item)
       if entry.source.name == 'nvim_lsp' then
         vim_item.dup = 0
       end
 
-      return vim_item
+      return vim_item;
     end
   },
 })
@@ -76,18 +74,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
   end
 })
-
-mason.setup();
-
-masonlsp.setup({
-  ensure_installed = {
-    'lua_ls',
-    'rust_analyzer',
-    'ts_ls',
-    'eslint',
-    'gopls',
-  }
-});
 
 vim.diagnostic.config({
     virtual_text = true
