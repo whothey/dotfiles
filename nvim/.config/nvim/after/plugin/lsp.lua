@@ -1,8 +1,4 @@
 local cmp = require('cmp');
-local mason = require('mason');
-local masonlsp = require('mason-lspconfig');
-
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
