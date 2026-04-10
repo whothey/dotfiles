@@ -4,6 +4,8 @@ require('abbrev')
 require('plugin-manager')
 require('custom-config-loader')
 
+require('vim._core.ui2').enable();
+
 if (os.getenv("TERM_PROGRAM") == "WezTerm") then
   require('wezterm')
 end
