@@ -3,7 +3,18 @@ return {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     event = "BufEnter",
+    branch = 'main',
     lazy = false,
+    config = function(_, opts)
+      require('nvim-treesitter').setup(opts);
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = opts.ensure_installed,
+        callback = function(_)
+          vim.treesitter.start();
+        end
+      });
+    end,
     opts = {
       ensure_installed = { "javascript", "typescript", "lua", "rust" },
       sync_install = false,
@@ -69,6 +80,4 @@ return {
   };
 
   {"nvim-treesitter/nvim-treesitter-context", lazy = false};
-
-  {"nvim-treesitter/nvim-treesitter-textobjects", lazy = false};
 }
