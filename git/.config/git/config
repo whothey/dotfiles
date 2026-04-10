@@ -11,12 +11,16 @@
 	helper = cache --timeout=120
 
 [alias]
+	s = switch
 	rebranch = rebase -i origin/master
 	recommit = commit --amend --no-edit
 	repush = push --force-with-lease origin HEAD
 	uncommit = reset --soft HEAD~
 	no-hooks = config core.hooksPath /dev/null
 	re-hooks = config --unset core.hooksPath
+	other-name = rev-parse --abbrev-ref @{-1}
+	diff-hashes = log --pretty=format:"%H" --reverse
+	pick-diff = "!zsh -c 'f() { git diff-hashes $@ | paste -s -d \" \" - | xargs git cherry-pick }; f $0'"
 [init]
 	defaultBranch = main
 [pull]
@@ -36,3 +40,5 @@
 	tool = nvimdiff
 [difftool "nvimdiff"]
 	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = nvimdiff
