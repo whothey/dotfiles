@@ -19,3 +19,6 @@ Also, there are some packages like `oh-my-zsh`, `nvim` and `tmux` that require
 submodules to be updated, so `git submodules update --init` should run to enable
 all features of all packages.
 
+## Acknowledgments
+
+Niri background: Photo by <a href="https://unsplash.com/@andersjilden?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Anders Jildén</a> on <a href="https://unsplash.com/photos/aerial-view-of-village-on-mountain-cliff-during-orange-sunset-cYrMQA7a3Wc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
