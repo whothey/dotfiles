@@ -81,7 +81,10 @@ return {
 
       dap.defaults.fallback.switchbuf = 'useopen,usetab,newtab';
       dap.defaults.fallback.terminal_win_cmd = 'belowright vertical new'
-      dap.defaults.fallback.external_terminal = { command = vim.fn.expand("~/.scripts/wezterm-split-exec.zsh"), }
+      dap.defaults.fallback.external_terminal = {
+		  command = 'wezterm',
+		  args = { 'cli', 'split-pane', '--right' },
+	  };
 
       vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = "Debug - Continue" })
       vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = "Debug - Step over" })
