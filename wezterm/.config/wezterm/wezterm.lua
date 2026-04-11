@@ -83,6 +83,16 @@ end
 config.leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
+  {
+    key = 'w',
+    mods = 'CMD',
+    action = wezterm.action.CloseCurrentPane { confirm = true },
+  },
+  {
+    key = 'w',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.CloseCurrentTab { confirm = true },
+  },
   -- Delete a word
   {
     key = 'Backspace',
