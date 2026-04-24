@@ -2,6 +2,7 @@ require('remap')
 require('set')
 require('abbrev')
 require('plugin-manager')
+require('autocmds')
 require('custom-config-loader')
 
 require('vim._core.ui2').enable();
