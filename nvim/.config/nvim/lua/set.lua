@@ -27,5 +27,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.exrc = true
+vim.o.path = vim.o.path .. ",**"
 
 vim.o.guifont = "JetBrainsMono Nerd Font:h16"
+vim.o.pumborder = 'rounded'
+vim.o.pumblend = 15
