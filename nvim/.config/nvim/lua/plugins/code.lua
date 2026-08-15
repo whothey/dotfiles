@@ -9,7 +9,12 @@ return {
       {'hrsh7th/cmp-nvim-lsp'},
       {'hrsh7th/cmp-nvim-lua'},
       {'ray-x/cmp-treesitter'},
-    }
+    },
+    opts = {
+      experimental = {
+        ghost_text = true,
+      }
+    },
   },
 
   {
